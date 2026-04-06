@@ -9,7 +9,10 @@ const Footer = () => {
             <h4 className="font-bold text-lg mb-4">Address</h4>
             <div className="flex items-start gap-3 text-sm opacity-80">
               <MapPin size={16} className="mt-0.5 shrink-0" />
-              <span>1625 Sonny Schulz Blv, Suite A<br />Stevensville, Maryland 21666</span>
+              <span>
+                1625 Sonny Schulz Blv, Suite A<br />
+                Stevensville, Maryland 21666
+              </span>
             </div>
           </div>
 
@@ -18,11 +21,11 @@ const Footer = () => {
             <div className="space-y-3 text-sm opacity-80">
               <div className="flex items-center gap-3">
                 <Phone size={16} className="shrink-0" />
-                <span>+1-800-555-1234</span>
+                <span>+91-9986094599</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={16} className="shrink-0" />
-                <span>support@moveitlogistics.com</span>
+                <span>ed@wtube.co</span>
               </div>
             </div>
           </div>

@@ -61,10 +61,10 @@ const About = () => {
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  All systems are implemented in accordance with IATF and ISO
-                  standards and are certified under the Hyundai SQ Mark, with
-                  controls established for traceability, inspection, and
-                  production management.
+                  All systems are implemented in accordance with IATF-16949 and
+                  ISO 9001:2015 standards and are certified under the Hyundai SQ
+                  Mark, with controls established for traceability, inspection,
+                  and production management.
                 </p>
               </FadeIn>
             </div>
@@ -73,16 +73,14 @@ const About = () => {
               <FadeIn delay={0.1}>
                 <div className="border-l-2 border-primary pl-6 space-y-6">
                   <div>
-                    <p className="text-3xl font-bold text-foreground">2018</p>
-                    <p className="text-muted-foreground text-sm">Founded</p>
+                    <p className="text-3xl font-bold text-foreground">
+                      IATF-16949
+                    </p>
                   </div>
 
                   <div>
                     <p className="text-3xl font-bold text-foreground">
-                      IATF & ISO
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      Certified Standards
+                      ISO 9001:2015
                     </p>
                   </div>
 

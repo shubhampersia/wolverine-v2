@@ -192,15 +192,15 @@ const Index = () => {
             <div className="col-span-12 lg:col-span-6">
               <FadeIn>
                 <div className="numbered-label mb-6">
-                  <span className="num">03</span> Our Services
+                  <span className="num">03</span> Solutions
                 </div>
                 <h2 className="heading-section mb-6">
-                  Tube Bending & Assembly Alteration
+                  Tube Bending & Assembly
                 </h2>
                 <div className="divider-gold mb-6" />
                 <p className="text-muted-foreground leading-relaxed mb-8">
                   The Chennai plant provides Tube Bending & Brazing, and
-                  Assembly alteration services for industrial applications.
+                  Assembly services for industrial applications.
                   Operations are performed to meet specified geometries and
                   tolerance requirements.
                 </p>
@@ -267,9 +267,6 @@ const Index = () => {
       <section className="section-breath pt-6 pb-16">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
-            <div className="numbered-label mb-6">
-              <span className="num">05</span> Solutions
-            </div>
 
             <h2 className="heading-section mb-12">Our Services</h2>
           </FadeIn>

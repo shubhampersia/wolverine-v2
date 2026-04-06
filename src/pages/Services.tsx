@@ -121,7 +121,7 @@ const Services = () => {
       </section>
 
       {/* ━━ DETAIL CARDS: Staggered layout ━━ */}
-      <section className="py-16 lg:py-18">
+      {/* <section className="py-16 lg:py-18">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-12 gap-8 lg:gap-16 mb-16">
             <div className="col-span-12 lg:col-span-5">
@@ -167,7 +167,7 @@ const Services = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ━━ CTA: Dark band ━━ */}
       <section className="section-dark py-16 lg:py-20">
