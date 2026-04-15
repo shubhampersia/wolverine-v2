@@ -40,7 +40,7 @@ const Navbar = () => {
               {link.label}
 
               <span
-                className={`absolute -bottom-1 left-0 h-[2px] bg-black transition-all duration-300 ${
+                className={`absolute -bottom-1 left-0 h-[2px] bg-yellow-400 transition-all duration-300 ${
                   location.pathname === link.path ? "w-full" : "w-0"
                 }`}
               />
