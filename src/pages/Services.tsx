@@ -30,7 +30,7 @@ const serviceContent: Record<
     title: "5 Axis Tube Bending",
     description:
       "Bending across multiple axes to meet specified angles and tolerances.",
-    image: "/unknown.png",
+    image: "/axis.png",
   },
   bead: {
     title: "Bead Forming",
@@ -47,12 +47,12 @@ const serviceContent: Record<
     title: "Precision Cutting",
     description:
       "Cutting raw material to required lengths based on drawing specifications.",
-    image: "/unknown.png",
+    image: "/precision.png",
   },
   stamping: {
     title: "Stamping",
     description: "Shaping parts using dies for consistent output.",
-    image: "/unknown.png",
+    image: "/paint.png",
   },
   cleaning: {
     title: "Ultrasonic Cleaning",
@@ -64,19 +64,19 @@ const serviceContent: Record<
     title: "Brazing & Welding",
     description:
       "Joining metals using brazing and welding based on application requirements.",
-    image: "/unknown.png",
+    image: "/brazing.png",
   },
   assembly: {
     title: "Assembly",
     description:
       "Assembling multiple parts into a finished unit as per design requirements.",
-    image: "/unknown.png",
+    image: "/assembly.png",
   },
   surface: {
     title: "Surface Treatment",
     description:
       "Surface finishing processes carried out based on material and application needs.",
-    image: "/unknown.png",
+    image: "/surface.png",
   },
 };
 
