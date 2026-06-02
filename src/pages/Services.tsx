@@ -36,12 +36,12 @@ const serviceContent: Record<
     title: "Bead Forming",
     description:
       "Forming beads on tubes for retention and proper fit during assembly.",
-    image: "/unknown.png",
+    image: "/bead.png",
   },
   end: {
     title: "End Forming",
     description: "Shaping ends based on connection and assembly requirements.",
-    image: "/unknown.png",
+    image: "/end.jpeg",
   },
   cutting: {
     title: "Precision Cutting",
@@ -58,7 +58,7 @@ const serviceContent: Record<
     title: "Ultrasonic Cleaning",
     description:
       "Cleaning surfaces using ultrasonic processes to remove contaminants.",
-    image: "/unknown.png",
+    image: "/Ultrasonic.jpg",
   },
   welding: {
     title: "Brazing & Welding",

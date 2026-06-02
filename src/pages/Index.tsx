@@ -37,7 +37,7 @@ const Index = () => {
       <section className="relative min-h-[90vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={heroImg}
+            src="/banner.jpeg"
             alt="Wolverine manufacturing facility"
             className="w-full h-full object-cover"
           />
@@ -213,7 +213,7 @@ const Index = () => {
               <FadeIn delay={0.1}>
                 <div className="relative w-full rounded-2xl overflow-hidden aspect-[4/3]">
                   <img
-                    src={heroImg}
+                    src="/tube.jpg"
                     alt="Tube bending process"
                     className="w-full h-full object-cover"
                   />
