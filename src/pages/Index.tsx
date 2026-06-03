@@ -41,8 +41,7 @@ const Index = () => {
             alt="Wolverine manufacturing facility"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/80 to-secondary/30" />
-        </div>
+<div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-secondary/20 to-transparent" />        </div>
         <div className="relative max-w-7xl mx-auto px-6 pb-20 lg:pb-28 w-full">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 lg:col-span-8">
