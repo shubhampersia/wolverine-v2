@@ -121,7 +121,7 @@ const About = () => {
         {
           name: "Manjunath",
           role: "Executive Director",
-          image: "/unknown.png",
+          image: "/manju.png",
           bio: "21 years of experience in the Manufacturing industry. Started in 2005. Specialised in Mechanical Engineering, predominantly worked in Automobile Global OEMs. Has experience in Supply Chain, Production Management, Quality Assurance and Sales & Marketing.",
         },
         {
