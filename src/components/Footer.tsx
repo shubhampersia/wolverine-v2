@@ -10,8 +10,8 @@ const Footer = () => {
             <div className="flex items-start gap-3 text-sm opacity-80">
               <MapPin size={16} className="mt-0.5 shrink-0" />
               <span>
-                1625 Sonny Schulz Blv, Suite A<br />
-                Stevensville, Maryland 21666
+                A-36/2, Oragadam, 5th Cross Road, <br /> SIPCOT Industrial Park,
+                 Sriperumbudur,<br /> Kancheepuram, Tamil Nadu, India - 602105
               </span>
             </div>
           </div>

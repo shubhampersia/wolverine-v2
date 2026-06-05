@@ -2,15 +2,62 @@ import Layout from "@/components/Layout";
 import { FadeIn } from "@/components/Animations";
 import { Phone, MapPin, Mail, ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { toast } from "sonner";
 
 const Contact = () => {
-  const [form, setForm] = useState({ firstName: "", secondName: "", email: "", phone: "", description: "" });
+  const [form, setForm] = useState({
+    firstName: "",
+    secondName: "",
+    email: "",
+    phone: "",
+    description: "",
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Inquiry submitted successfully!");
-    setForm({ firstName: "", secondName: "", email: "", phone: "", description: "" });
+
+    const newErrors: Record<string, string> = {};
+    if (!form.firstName.trim()) newErrors.firstName = "First name is required";
+    if (!form.email.trim()) newErrors.email = "Email is required";
+    if (!form.description.trim()) newErrors.description = "Description is required";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const res = await fetch("/send-email.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: form.firstName,
+          secondName: form.secondName,
+          email: form.email,
+          mobile: form.phone,
+          description: form.description,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setSubmitStatus("success");
+        setForm({ firstName: "", secondName: "", email: "", phone: "", description: "" });
+        setErrors({});
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -41,22 +88,20 @@ const Contact = () => {
                 icon: MapPin,
                 label: "ADDRESS",
                 value:
-                  "1625 Sonny Schulz Blvd Suites,\nStevensville, Maryland 21666",
+                  "A-36/2, Oragadam, 5th Cross Road, SIPCOT Industrial Park,\nSriperumbudur, Kancheepuram, Tamil Nadu, India - 602105",
               },
               { icon: Mail, label: "EMAIL US", value: "ed@wtube.co" },
             ].map((item) => (
               <FadeIn key={item.label}>
-                <div className="card-dark flex items-start gap-4 h-[110px]">
+                <div className="card-dark flex items-start gap-4 min-h-[110px] py-5">
                   <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0">
                     <item.icon size={20} className="text-primary-foreground" />
                   </div>
-
                   <div className="max-w-xs">
                     <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-1">
                       {item.label}
                     </p>
-
-                    <p className="text-sm text-secondary-foreground whitespace-pre-line leading-relaxed line-clamp-2">
+                    <p className="text-sm text-secondary-foreground whitespace-pre-line leading-relaxed">
                       {item.value}
                     </p>
                   </div>
@@ -84,6 +129,7 @@ const Contact = () => {
                 </p>
               </FadeIn>
             </div>
+
             <div className="col-span-12 lg:col-span-8">
               <FadeIn delay={0.1}>
                 <form
@@ -92,84 +138,90 @@ const Contact = () => {
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                      <label className="label-utility mb-2 block">
-                        First Name
-                      </label>
+                      <label className="label-utility mb-2 block">First Name</label>
                       <input
                         type="text"
                         value={form.firstName}
-                        onChange={(e) =>
-                          setForm({ ...form, firstName: e.target.value })
-                        }
+                        onChange={(e) => setForm({ ...form, firstName: e.target.value })}
                         placeholder="Enter your first name"
                         className="w-full h-11 px-4 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
-                        required
                       />
+                      {errors.firstName && (
+                        <span className="text-xs text-red-500 mt-1 block">{errors.firstName}</span>
+                      )}
                     </div>
                     <div>
-                      <label className="label-utility mb-2 block">
-                        Second Name
-                      </label>
+                      <label className="label-utility mb-2 block">Second Name</label>
                       <input
                         type="text"
                         value={form.secondName}
-                        onChange={(e) =>
-                          setForm({ ...form, secondName: e.target.value })
-                        }
+                        onChange={(e) => setForm({ ...form, secondName: e.target.value })}
                         placeholder="Enter your second name"
                         className="w-full h-11 px-4 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
                       />
                     </div>
                   </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                      <label className="label-utility mb-2 block">
-                        Email Address
-                      </label>
+                      <label className="label-utility mb-2 block">Email Address</label>
                       <input
                         type="email"
                         value={form.email}
-                        onChange={(e) =>
-                          setForm({ ...form, email: e.target.value })
-                        }
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
                         placeholder="Enter your email address"
                         className="w-full h-11 px-4 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
-                        required
                       />
+                      {errors.email && (
+                        <span className="text-xs text-red-500 mt-1 block">{errors.email}</span>
+                      )}
                     </div>
                     <div>
-                      <label className="label-utility mb-2 block">
-                        Mobile Number
-                      </label>
+                      <label className="label-utility mb-2 block">Mobile Number</label>
                       <input
                         type="tel"
                         value={form.phone}
-                        onChange={(e) =>
-                          setForm({ ...form, phone: e.target.value })
-                        }
+                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
                         placeholder="Enter your number"
                         className="w-full h-11 px-4 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
                       />
                     </div>
                   </div>
+
                   <div>
-                    <label className="label-utility mb-2 block">
-                      Description
-                    </label>
+                    <label className="label-utility mb-2 block">Description</label>
                     <textarea
                       value={form.description}
-                      onChange={(e) =>
-                        setForm({ ...form, description: e.target.value })
-                      }
+                      onChange={(e) => setForm({ ...form, description: e.target.value })}
                       placeholder="Enter your description in detail"
                       rows={5}
                       className="w-full px-4 py-3 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none transition-shadow"
-                      required
                     />
+                    {errors.description && (
+                      <span className="text-xs text-red-500 mt-1 block">{errors.description}</span>
+                    )}
                   </div>
-                  <button type="submit" className="btn-primary">
-                    Submit <ArrowRight size={16} />
-                  </button>
+
+                  <div className="space-y-3">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="btn-primary disabled:opacity-60"
+                    >
+                      {isSubmitting ? "Sending..." : "Submit"} <ArrowRight size={16} />
+                    </button>
+
+                    {submitStatus === "success" && (
+                      <p className="text-sm text-green-600 font-medium">
+                        ✓ Inquiry submitted! We'll get back to you soon.
+                      </p>
+                    )}
+                    {submitStatus === "error" && (
+                      <p className="text-sm text-red-500 font-medium">
+                        ✗ Something went wrong. Please try again or email us at ed@wtube.co
+                      </p>
+                    )}
+                  </div>
                 </form>
               </FadeIn>
             </div>

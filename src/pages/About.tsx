@@ -2,7 +2,6 @@ import Layout from "@/components/Layout";
 import { FadeIn } from "@/components/Animations";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import aboutImg from "@/assets/about-facility.jpg";
 
 const careerImages = [
   "/career/1.jpeg",
@@ -17,9 +16,8 @@ const About = () => {
   return (
     <Layout>
       {/* ━━ HERO: Split — dark left, image right ━━ */}
-      {/* ━━ HERO: Split — dark left, image right ━━ */}
-      <section className="px-4 sm:px-6 md:px-[2%] pt-[15px] sm:pt-[18px] mb-[clamp(16px,2.5vh,32px)]">
-        <div className="max-w-[1500px] mx-auto rounded-3xl overflow-hidden h-[80vh] sm:h-[85vh] md:h-[90vh]">
+      <section className="px-4 sm:px-6 md:px-[2%] pt-[15px] sm:pt-[18px] pb-[15px] sm:pb-[18px] mb-[clamp(16px,2.5vh,32px)]">
+        <div className="max-w-[1500px] mx-auto rounded-3xl overflow-hidden h-[75vh] sm:h-[80vh] md:h-[85vh]">
           <div className="grid grid-cols-12 gap-0 h-full">
             {/* Left Content */}
             <div className="col-span-12 lg:col-span-5 bg-secondary p-10 lg:p-14 flex flex-col justify-center">
@@ -41,11 +39,11 @@ const About = () => {
               </FadeIn>
             </div>
 
-            {/* Right Image */}
-            <div className="col-span-12 lg:col-span-7 h-full">
-              <FadeIn delay={0.15}>
+            {/* Right Image — must fill full height of the grid row */}
+            <div className="col-span-12 lg:col-span-7 h-full overflow-hidden">
+              <FadeIn delay={0.15} className="h-full w-full">
                 <img
-                  src={aboutImg}
+                  src="/about.png"
                   alt="Wolverine facility"
                   className="w-full h-full object-cover"
                 />
@@ -106,64 +104,62 @@ const About = () => {
         </div>
       </section>
 
-{/* ━━ TEAM: Dark section with glass cards ━━ */}
-<section className="section-dark section-breath">
-  <div className="max-w-7xl mx-auto px-6">
-    <FadeIn>
-      <div className="numbered-label mb-6">
-        <span className="num">02</span> Leadership
-      </div>
-      <h2 className="heading-section mb-12">About Our Team</h2>
-    </FadeIn>
-
-    <div className="space-y-6">
-      {[
-        {
-          name: "Manjunath",
-          role: "Executive Director",
-          image: "/manju.png",
-          bio: "21 years of experience in the Manufacturing industry. Started in 2005. Specialised in Mechanical Engineering, predominantly worked in Automobile Global OEMs. Has experience in Supply Chain, Production Management, Quality Assurance and Sales & Marketing.",
-        },
-        {
-          name: "Jacob",
-          role: "President",
-          image: "/jacob.webp",
-          bio: "Brings decades of leadership in precision manufacturing and global operations, driving Wolverine's mission to deliver consistently reliable industrial components.",
-        },
-      ].map((member, i) => (
-        <FadeIn key={member.name} delay={i * 0.1}>
-          <div className="grid grid-cols-12 gap-6 items-start p-6 lg:p-8 rounded-2xl border border-secondary-foreground/10 hover:border-primary/30 transition-colors">
-
-            {/* Image */}
-            <div className="col-span-12 md:col-span-3">
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full aspect-square object-cover rounded-xl"
-              />
+      {/* ━━ TEAM: Dark section with glass cards ━━ */}
+      <section className="section-dark section-breath">
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeIn>
+            <div className="numbered-label mb-6">
+              <span className="num">02</span> Leadership
             </div>
+            <h2 className="heading-section mb-12">About Our Team</h2>
+          </FadeIn>
 
-            {/* Content */}
-            <div className="col-span-12 md:col-span-9 md:pt-2">
-              <h3 className="font-bold text-xl text-secondary-foreground">
-                {member.name}
-              </h3>
+          <div className="space-y-6">
+            {[
+              {
+                name: "Manjunath",
+                role: "Executive Director",
+                image: "/manju.png",
+                bio: "21 years of experience in the Manufacturing industry. Started in 2005. Specialised in Mechanical Engineering, predominantly worked in Automobile Global OEMs. Has experience in Supply Chain, Production Management, Quality Assurance and Sales & Marketing.",
+              },
+              {
+                name: "Jacob",
+                role: "President",
+                image: "/jacob.webp",
+                bio: "Brings decades of leadership in precision manufacturing and global operations, driving Wolverine's mission to deliver consistently reliable industrial components.",
+              },
+            ].map((member, i) => (
+              <FadeIn key={member.name} delay={i * 0.1}>
+                <div className="grid grid-cols-12 gap-6 items-start p-6 lg:p-8 rounded-2xl border border-secondary-foreground/10 hover:border-primary/30 transition-colors">
+                  {/* Image */}
+                  <div className="col-span-12 md:col-span-3">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full aspect-square object-cover rounded-xl"
+                    />
+                  </div>
 
-              <p className="text-primary text-xs font-semibold uppercase tracking-wider mt-1 mb-4">
-                {member.role}
-              </p>
+                  {/* Content */}
+                  <div className="col-span-12 md:col-span-9 md:pt-2">
+                    <h3 className="font-bold text-xl text-secondary-foreground">
+                      {member.name}
+                    </h3>
 
-              <p className="text-secondary-foreground/60 leading-relaxed max-w-2xl">
-                {member.bio}
-              </p>
-            </div>
+                    <p className="text-primary text-xs font-semibold uppercase tracking-wider mt-1 mb-4">
+                      {member.role}
+                    </p>
 
+                    <p className="text-secondary-foreground/60 leading-relaxed max-w-2xl">
+                      {member.bio}
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
           </div>
-        </FadeIn>
-      ))}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* ━━ CAREERS: Gold band CTA ━━ */}
       <section className="section-breath">
@@ -184,22 +180,22 @@ const About = () => {
             </div>
             <div className="col-span-12 lg:col-span-6">
               <FadeIn delay={0.1}>
-<div className="grid grid-cols-3 gap-3">
-  {careerImages.map((image, i) => (
-    <div
-      key={i}
-      className={`overflow-hidden rounded-xl ${
-        i % 2 === 0 ? "aspect-[3/4]" : "aspect-square"
-      }`}
-    >
-      <img
-        src={image}
-        alt={`Career ${i + 1}`}
-        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-      />
-    </div>
-  ))}
-</div>
+                <div className="grid grid-cols-3 gap-3">
+                  {careerImages.map((image, i) => (
+                    <div
+                      key={i}
+                      className={`overflow-hidden rounded-xl ${
+                        i % 2 === 0 ? "aspect-[3/4]" : "aspect-square"
+                      } ${i === 4 ? "-mt-16" : ""}`}
+                    >
+                      <img
+                        src={image}
+                        alt={`Career ${i + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                    </div>
+                  ))}
+                </div>
               </FadeIn>
             </div>
           </div>
