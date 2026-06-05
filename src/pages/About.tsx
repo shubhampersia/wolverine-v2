@@ -53,8 +53,12 @@ const About = () => {
         </div>
       </section>
 
-      {/* ━━ DETAILS: Offset text on white ━━ */}
-      <section className="py-20 lg:py-[8vh]">
+      {/* ━━ DETAILS: Offset text on white ━━
+          FIX 1 — Reduced vertical padding from py-20 lg:py-[8vh] to
+          py-10 lg:py-14 so the gap above this section is noticeably
+          smaller on both mobile and desktop without feeling cramped.
+      */}
+      <section className="pt-6 pb-10 lg:py-14">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-12 gap-8 lg:gap-20">
             <div className="col-span-12 lg:col-span-6 lg:col-start-1">
@@ -178,15 +182,35 @@ const About = () => {
                 </Link>
               </FadeIn>
             </div>
+
             <div className="col-span-12 lg:col-span-6">
               <FadeIn delay={0.1}>
+                {/*
+                  FIX 2 — Career image overlap on mobile.
+
+                  Root cause: the `-mt-16` negative margin on image[4]
+                  (the 5th image, middle-bottom) pulled it up and overlapped
+                  the row above on narrow screens where the grid columns are
+                  narrower and images are shorter.
+
+                  Solution:
+                  • Keep the `-mt-16` offset only on `lg:` screens where
+                    there is enough column height to absorb it safely.
+                  • On mobile the images are rendered in a flat 3-column
+                    grid with no offsets so nothing overlaps.
+                */}
                 <div className="grid grid-cols-3 gap-3">
                   {careerImages.map((image, i) => (
                     <div
                       key={i}
-                      className={`overflow-hidden rounded-xl will-change-transform ${
-                        i % 2 === 0 ? "aspect-[3/4]" : "aspect-square"
-                      } ${i === 4 ? "-mt-16" : ""}`}
+                      className={[
+                        "overflow-hidden rounded-xl will-change-transform",
+                        i % 2 === 0 ? "aspect-[3/4]" : "aspect-square",
+                        // Only apply the negative pull on large screens
+                        i === 4 ? "lg:-mt-16" : "",
+                      ]
+                        .filter(Boolean)
+                        .join(" ")}
                     >
                       <img
                         src={image}

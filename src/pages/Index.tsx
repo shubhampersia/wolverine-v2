@@ -30,52 +30,75 @@ const capabilities = [
   "Surface Treatment",
 ];
 
+// Inline keyframes injected once at module level — no styled-jsx needed
+const marqueeStyles = `
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+`;
+
 const Index = () => {
   return (
     <Layout>
+      {/* Inject marquee keyframes globally */}
+      <style>{marqueeStyles}</style>
+
       {/* ━━ HERO: Full-bleed image with dark overlay ━━ */}
-      <section className="relative min-h-[90vh] flex items-end overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/banner.jpeg"
             alt="Wolverine manufacturing facility"
             className="w-full h-full object-cover"
           />
-<div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-secondary/20 to-transparent" />        </div>
-        <div className="relative max-w-7xl mx-auto px-6 pb-20 lg:pb-28 w-full">
-          <div className="grid grid-cols-12 gap-6">
-            <div className="col-span-12 lg:col-span-8">
-              <FadeIn>
-                <div className="numbered-label text-secondary-foreground/50 mb-6">
-                  <span className="num">01</span> Precision Manufacturing
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.1}>
-                <h1 className="heading-display text-secondary-foreground">
-                  Designed,
-                  <br />
-                  Manufactured,
-                  <br />
-                  Delivered.
-                </h1>
-              </FadeIn>
-              <FadeIn delay={0.2}>
-                <p className="mt-6 text-secondary-foreground/60 max-w-md text-lg leading-relaxed">
-                  A Legacy of Quality and Innovation in Tube Bending &
-                  Industrial Manufacturing.
-                </p>
-              </FadeIn>
-              <FadeIn delay={0.3}>
-                <Link to="/contact" className="btn-primary mt-8">
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-secondary/20 to-transparent" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-28 w-full">
+          {/*
+            FIX 1 — Mobile hero text centering
+            • Added `text-center lg:text-left` to the inner column so the
+              heading, sub-copy, and CTA are centred on small screens.
+            • Removed the 12-col grid wrapper (it added no value on mobile
+              and was the reason content was left-flushed).
+          */}
+          <div className="text-center lg:text-left lg:max-w-[66%]">
+            <FadeIn>
+              <div className="numbered-label text-secondary-foreground/50 mb-6 justify-center lg:justify-start">
+                <span className="num">01</span> Precision Manufacturing
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1 className="heading-display text-secondary-foreground">
+                Designed,
+                <br />
+                Manufactured,
+                <br />
+                Delivered.
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="mt-6 text-secondary-foreground/60 max-w-md text-lg leading-relaxed mx-auto lg:mx-0">
+                A Legacy of Quality and Innovation in Tube Bending &amp;
+                Industrial Manufacturing.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.3}>
+              <div className="flex justify-center lg:justify-start">
+                <Link to="/contact" className="btn-primary mt-8 inline-flex">
                   Get in Touch <ArrowRight size={16} />
                 </Link>
-              </FadeIn>
-            </div>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ━━ CLIENTS: Gold band ━━ */}
+      {/* ━━ CLIENTS: Marquee band ━━ */}
       <section className="bg-white py-[80px] w-full overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           {/* Heading */}
@@ -83,58 +106,51 @@ const Index = () => {
             <h2 className="heading-section">Our Clients</h2>
             <div className="divider-gold mx-auto mt-3" />
           </div>
-
-          {/* Marquee */}
-          <div className="w-full overflow-hidden relative">
-            <div className="flex whitespace-nowrap items-center w-max animate-marquee">
-              {/* First copy */}
-              {clients.map((logo, idx) => (
-                <div
-                  key={`logo1-${idx}`}
-                  className="shrink-0 flex items-center justify-center mx-12"
-                >
-                  <img
-                    src={logo}
-                    alt={`Client ${idx}`}
-                    className="h-12 md:h-14 w-auto object-contain"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-
-              {/* Duplicate for seamless animation */}
-              {clients.map((logo, idx) => (
-                <div
-                  key={`logo2-${idx}`}
-                  className="shrink-0 flex items-center justify-center mx-12"
-                >
-                  <img
-                    src={logo}
-                    alt={`Client ${idx}`}
-                    className="h-12 md:h-14 w-auto object-contain"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
-        {/* Animation */}
-        <style jsx>{`
-          @keyframes marquee {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
+        {/*
+          FIX 2 — Clients marquee on mobile
+          • Moved the scrolling track OUTSIDE the padded container so it
+            truly spans edge-to-edge (padding on the parent was clipping it).
+          • Replaced <style jsx> (requires styled-jsx) with the module-level
+            <style> tag injected above.
+          • The duplicate set of logos ensures seamless looping when the
+            first set scrolls fully off-screen.
+        */}
+        <div className="w-full overflow-hidden">
+          <div className="flex whitespace-nowrap items-center w-max animate-marquee">
+            {/* First copy */}
+            {clients.map((logo, idx) => (
+              <div
+                key={`logo1-${idx}`}
+                className="shrink-0 flex items-center justify-center mx-12"
+              >
+                <img
+                  src={logo}
+                  alt={`Client ${idx + 1}`}
+                  className="h-12 md:h-14 w-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
 
-          .animate-marquee {
-            animation: marquee 25s linear infinite;
-          }
-        `}</style>
+            {/* Duplicate for seamless loop */}
+            {clients.map((logo, idx) => (
+              <div
+                key={`logo2-${idx}`}
+                className="shrink-0 flex items-center justify-center mx-12"
+                aria-hidden="true"
+              >
+                <img
+                  src={logo}
+                  alt=""
+                  className="h-12 md:h-14 w-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ━━ ABOUT: Clean white with bordered image ━━ */}
@@ -159,7 +175,7 @@ const Index = () => {
                 <p className="text-muted-foreground leading-relaxed mb-8">
                   Production activities are carried out based on
                   customer-provided engineering documentation. Material
-                  identification, forming, Tube Bending & Brazing, Assembly
+                  identification, forming, Tube Bending &amp; Brazing, Assembly
                   alterations, and inspection are performed in accordance with
                   defined procedures.
                 </p>
@@ -194,11 +210,11 @@ const Index = () => {
                   <span className="num">03</span> Solutions
                 </div>
                 <h2 className="heading-section mb-6">
-                  Tube Bending & Assembly
+                  Tube Bending &amp; Assembly
                 </h2>
                 <div className="divider-gold mb-6" />
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  The Chennai plant provides Tube Bending & Brazing, and
+                  The Chennai plant provides Tube Bending &amp; Brazing, and
                   Assembly services for industrial applications.
                   Operations are performed to meet specified geometries and
                   tolerance requirements.
@@ -266,7 +282,6 @@ const Index = () => {
       <section className="section-breath pt-6 pb-16">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
-
             <h2 className="heading-section mb-12">Our Services</h2>
           </FadeIn>
 
