@@ -184,14 +184,14 @@ const About = () => {
                   {careerImages.map((image, i) => (
                     <div
                       key={i}
-                      className={`overflow-hidden rounded-xl ${
+                      className={`overflow-hidden rounded-xl will-change-transform ${
                         i % 2 === 0 ? "aspect-[3/4]" : "aspect-square"
                       } ${i === 4 ? "-mt-16" : ""}`}
                     >
                       <img
                         src={image}
                         alt={`Career ${i + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        className="w-full h-full object-cover transform-gpu transition-transform duration-500 hover:scale-110"
                       />
                     </div>
                   ))}
