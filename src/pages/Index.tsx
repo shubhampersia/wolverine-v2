@@ -188,7 +188,7 @@ const Index = () => {
               <FadeIn delay={0.15}>
                 <div className="relative">
                   <img
-                    src={aboutImg}
+                    src="/precision.jpeg"
                     alt="Tube bending process"
                     className="w-full rounded-2xl object-cover aspect-[4/3] relative z-10"
                   />
