@@ -81,7 +81,7 @@ const Contact = () => {
       {/* ━━ CONTACT CARDS: Dark cards on white ━━ */}
       <section className="py-12 -mt-8">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
             {[
               { icon: Phone, label: "CALL US", value: "9986094599" },
               {
@@ -92,9 +92,8 @@ const Contact = () => {
               },
               { icon: Mail, label: "EMAIL US", value: "ed@wtube.co" },
             ].map((item) => (
-              <FadeIn key={item.label}>
-                <div className="card-dark flex items-start gap-4 min-h-[110px] py-5">
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0">
+              <FadeIn key={item.label} className="h-full">
+<div className="card-dark flex items-center  gap-4 h-full py-5">                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0">
                     <item.icon size={20} className="text-primary-foreground" />
                   </div>
                   <div className="max-w-xs">
