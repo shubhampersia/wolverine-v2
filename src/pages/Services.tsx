@@ -39,7 +39,7 @@ const serviceContent: Record<
   end: {
     title: "End Forming",
     description: "Shaping ends based on connection and assembly requirements.",
-    image: "/end.jpeg",
+    image: "/end.png",
   },
   cutting: {
     title: "Precision Cutting",
@@ -59,7 +59,7 @@ const serviceContent: Record<
   welding: {
     title: "Brazing & Welding",
     description: "Joining metals using brazing and welding based on application requirements.",
-    image: "/brazing.png",
+    image: "/brazing.jpg",
   },
   assembly: {
     title: "Assembly",

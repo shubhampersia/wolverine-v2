@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { FadeIn } from "@/components/Animations";
 import { Phone, MapPin, Mail, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import PhoneInput from "@/components/PhoneInput";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -175,16 +176,10 @@ const Contact = () => {
                         <span className="text-xs text-red-500 mt-1 block">{errors.email}</span>
                       )}
                     </div>
-                    <div>
-                      <label className="label-utility mb-2 block">Mobile Number</label>
-                      <input
-                        type="tel"
-                        value={form.phone}
-                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        placeholder="Enter your number"
-                        className="w-full h-11 px-4 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
-                      />
-                    </div>
+<PhoneInput
+  value={form.phone}
+  onChange={(val) => setForm({ ...form, phone: val })}
+/>
                   </div>
 
                   <div>
