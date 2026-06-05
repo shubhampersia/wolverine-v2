@@ -51,12 +51,11 @@ const Index = () => {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/banner.jpeg"
+            src="/banner.png"
             alt="Wolverine manufacturing facility"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-secondary/20 to-transparent" />
-        </div>
+<div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />        </div>
 
         <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-28 w-full">
           {/*
@@ -68,7 +67,7 @@ const Index = () => {
           */}
           <div className="text-center lg:text-left lg:max-w-[66%]">
             <FadeIn>
-              <div className="numbered-label text-secondary-foreground/50 mb-6 justify-center lg:justify-start">
+              <div className="numbered-label text-white/60 mb-6 justify-center lg:justify-start">
                 <span className="num">01</span> Precision Manufacturing
               </div>
             </FadeIn>
@@ -82,7 +81,7 @@ const Index = () => {
               </h1>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="mt-6 text-secondary-foreground/60 max-w-md text-lg leading-relaxed mx-auto lg:mx-0">
+              <p className="mt-6 text-white/85 max-w-md text-lg leading-relaxed mx-auto lg:mx-0">
                 A Legacy of Quality and Innovation in Tube Bending &amp;
                 Industrial Manufacturing.
               </p>

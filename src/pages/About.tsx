@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const careerImages = [
   "/career/1.jpeg",
-  "/career/2.jpeg",
+  "/career/7.jpg",
   "/career/3.jpeg",
   "/career/4.jpeg",
   "/career/5.jpeg",

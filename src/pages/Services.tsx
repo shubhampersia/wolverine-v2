@@ -64,7 +64,7 @@ const serviceContent: Record<
   assembly: {
     title: "Assembly",
     description: "Assembling multiple parts into a finished unit as per design requirements.",
-    image: "/assembly.png",
+    image: "/assembly.JPG",
   },
   surface: {
     title: "Surface Treatment",
