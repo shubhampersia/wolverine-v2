@@ -6,69 +6,53 @@ import { useState } from "react";
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const servicesList = [
-  { name: "5 Axis Tube Bending", icon: "⟁" },
-  { name: "Bead Forming", icon: "◎" },
-  { name: "End Forming", icon: "◈" },
-  { name: "Precision Cutting", icon: "⊘" },
-  { name: "Stamping", icon: "⬡" },
-  { name: "Ultrasonic Cleaning", icon: "∿" },
-  { name: "Brazing & Welding", icon: "⊕" },
-  { name: "Assembly", icon: "⧉" },
-  { name: "Surface Treatment", icon: "◬" },
-];
 
-type ServiceKey = | "bending" | "bead" | "end" | "cutting" | "stamping" | "cleaning" | "welding" | "assembly" | "surface";
+type ServiceKey = | "bending"| "end" | "bead"  | "cutting" | "stamping" | "cleaning" | "assembly" | "surface";
 
-const services = [ { key: "bending", label: "5 Axis Tube Bending" }, { key: "bead", label: "Bead Forming" }, { key: "end", label: "End Forming" }, { key: "cutting", label: "Precision Cutting" }, { key: "stamping", label: "Stamping" }, { key: "cleaning", label: "Ultrasonic Cleaning" }, { key: "welding", label: "Brazing & Welding" }, { key: "assembly", label: "Assembly" }, { key: "surface", label: "Surface Treatment" }, ];
+const services = [ { key: "bending", label: "CNC Bending (5-Axis)" }, { key: "end", label: "End Forming" }, { key: "bead", label: "Beading" }, { key: "cutting", label: "Flame Brazing" }, { key: "stamping", label: "Induction Brazing" }, { key: "cleaning", label: "Ultrasonic Cleaning" }, { key: "assembly", label: "Assembly" }, { key: "surface", label: "Post-Process Surface Treatment" }, ];
 
 const serviceContent: Record<
   ServiceKey,
   { title: string; description: string; image: string }
 > = {
   bending: {
-    title: "5 Axis Tube Bending",
-    description: "Bending across multiple axes to meet specified angles and tolerances.",
+    title: "CNC Bending (5-Axis)",
+    description: "Precision bending of tubes up to Ø38 mm diameter, enabling complex multi-plane bends through five-axis CNC control. The process delivers high accuracy, repeatability, and consistent dimensional performance.",
     image: "/axis.jpeg",
   },
-  bead: {
-    title: "Bead Forming",
-    description: "Forming beads on tubes for retention and proper fit during assembly.",
-    image: "/bead.png",
-  },
-  end: {
+    end: {
     title: "End Forming",
-    description: "Shaping ends based on connection and assembly requirements.",
+    description: "Tube-end forming operations including expansion, reduction, flaring, beading, and necking. Interchangeable tooling allows a range of end profiles to be produced according to engineering specifications.",
     image: "/end.png",
   },
+  bead: {
+    title: "Beading",
+    description: "Formation of uniform bead profiles on tubes to support hose retention and assembly requirements. The process ensures consistent dimensions, secure fitment, and reliable performance.",
+    image: "/bead.png",
+  },
   cutting: {
-    title: "Precision Cutting",
-    description: "Cutting raw material to required lengths based on drawing specifications.",
-    image: "/precision.jpg",
+    title: "Flame Brazing",
+    description: "Joining of metallic tube assemblies using oxygen and acetylene heating with brazing filler material. Suitable for copper, brass, steel, and other metal components requiring strong, leak-proof joints.",
+    image: "/brazing.jpg",
   },
   stamping: {
-    title: "Stamping",
-    description: "Shaping parts using dies for consistent output.",
-    image: "/paint.jpeg",
+    title: "Induction Brazing",
+    description: "High-frequency induction heating for precise brazing of metallic components. The method provides localized heating, consistent joint quality, and reduced oxidation during production.",
+    image: "/precision.jpg",
   },
   cleaning: {
     title: "Ultrasonic Cleaning",
-    description: "Cleaning surfaces using ultrasonic processes to remove contaminants.",
+    description: "Removal of oil, grease, dirt, and machining contaminants using ultrasonic cleaning and alkaline degreasing solutions. Suitable for fabricated parts, tubes, and assemblies with complex geometries.",
     image: "/ultrasonic.png",
-  },
-  welding: {
-    title: "Brazing & Welding",
-    description: "Joining metals using brazing and welding based on application requirements.",
-    image: "/brazing.jpg",
   },
   assembly: {
     title: "Assembly",
-    description: "Assembling multiple parts into a finished unit as per design requirements.",
+    description: "Assembly of components as per approved drawings and work instructions, with verification of fitment, alignment, and assembly quality before release to subsequent operations.",
     image: "/assembly.JPG",
   },
   surface: {
-    title: "Surface Treatment",
-    description: "Surface finishing processes carried out based on material and application needs.",
+    title: "Post-Process Surface Treatment",
+    description: "Surface treatment of fabricated components to improve cleanliness, corrosion resistance, appearance, and surface characteristics. Treatments are selected based on material specifications, functional requirements, and end-use application standards.",
     image: "/surface.jpg",
   },
 };
