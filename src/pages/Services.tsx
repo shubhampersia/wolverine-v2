@@ -33,12 +33,12 @@ const serviceContent: Record<
   cutting: {
     title: "Flame Brazing",
     description: "Joining of metallic tube assemblies using oxygen and acetylene heating with brazing filler material. Suitable for copper, brass, steel, and other metal components requiring strong, leak-proof joints.",
-    image: "/brazing.jpg",
+    image: "/flame.jpeg",
   },
   stamping: {
     title: "Induction Brazing",
     description: "High-frequency induction heating for precise brazing of metallic components. The method provides localized heating, consistent joint quality, and reduced oxidation during production.",
-    image: "/precision.jpg",
+    image: "/induction.PNG",
   },
   cleaning: {
     title: "Ultrasonic Cleaning",

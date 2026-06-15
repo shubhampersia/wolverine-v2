@@ -27,7 +27,7 @@ if (!$firstName || !$email || !$description) {
     exit;
 }
 
-$to      = "ed@wtube.co";
+$to      = "shubhampersia512@gmail.com";
 $subject = "New Enquiry from $firstName $secondName";
 
 $htmlBody = "
@@ -89,7 +89,7 @@ $htmlBody = "
 </html>
 ";
 
-$headers  = "From: noreply@wtube.co\r\n";
+$headers  = "From: noreply@michmfg.com\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
