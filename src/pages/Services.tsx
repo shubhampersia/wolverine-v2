@@ -48,7 +48,7 @@ const serviceContent: Record<
   assembly: {
     title: "Assembly",
     description: "Assembly of components as per approved drawings and work instructions, with verification of fitment, alignment, and assembly quality before release to subsequent operations.",
-    image: "/assembly.JPG",
+    image: "/assembly.jpg",
   },
   surface: {
     title: "Post-Process Surface Treatment",

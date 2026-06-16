@@ -4,12 +4,12 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const careerImages = [
-  "/career/1.jpeg",
+  "/career/1.jpg",
   "/career/7.jpg",
-  "/career/3.jpeg",
+  "/career/3.jpg",
   "/career/4.jpeg",
-  "/career/5.jpeg",
-  "/career/6.jpeg",
+  "/career/5.jpg",
+  "/career/2.jpeg",
 ];
 
 const About = () => {

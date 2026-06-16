@@ -27,7 +27,7 @@ if (!$firstName || !$email || !$description) {
     exit;
 }
 
-$to      = "shubhampersia512@gmail.com";
+$to      = "ed@wtube.co";
 $subject = "New Enquiry from $firstName $secondName";
 
 $htmlBody = "
