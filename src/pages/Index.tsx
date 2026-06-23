@@ -87,6 +87,8 @@ const Index = () => {
   <div className="absolute inset-0">
     <img
       src="/banner.png"
+        width={1508}
+        height={744}
       alt="Wolverine manufacturing facility"
       className="w-full h-full object-cover object-center"
     />
@@ -227,6 +229,8 @@ const Index = () => {
                 <div className="relative">
                   <img
                     src="/precision.jpeg"
+                      width={4993}
+                      height={3333}
                     alt="Tube bending process"
                     className="w-full rounded-2xl object-cover aspect-[4/3] relative z-10"
                   />
@@ -267,6 +271,8 @@ const Index = () => {
                 <div className="relative w-full rounded-2xl overflow-hidden aspect-[4/3]">
                   <img
                     src="/tube.jpg"
+                      width={1400}
+                      height={730}
                     alt="Tube bending process"
                     className="w-full h-full object-cover"
                   />
