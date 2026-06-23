@@ -3,6 +3,7 @@ import { FadeIn } from "@/components/Animations";
 import { Phone, MapPin, Mail, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import PhoneInput from "@/components/PhoneInput";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -63,6 +64,19 @@ const Contact = () => {
 
   return (
     <Layout>
+<Helmet>
+  <title>Contact Us | WLVTEC</title>
+
+  <meta
+    name="description"
+    content="Contact WLVTEC for inquiries regarding tube bending and tubular assembly manufacturing solutions."
+  />
+
+  <link
+    rel="canonical"
+    href="https://wlvtec.com/contact"
+  />
+</Helmet>
       {/* ━━ HERO: Gold band header ━━ */}
       <section className="section-gold py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-6">

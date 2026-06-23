@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(async ({ mode }) => ({   // ADD async HERE
   server: {
     host: "::",
     port: 8080,
@@ -12,7 +12,22 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [
+    react(),
+    mode === "development" && componentTagger(),
+  ].filter(Boolean),
+  build: {
+    rollupOptions: {
+      plugins: mode === "production"
+        ? [
+            (await import("@prerenderer/rollup-plugin")).default({
+              routes: ["/", "/about", "/services", "/industries", "/contact"],
+              renderer: new (await import("@prerenderer/renderer-puppeteer")).default(),
+            }),
+          ]
+        : [],
+    },
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

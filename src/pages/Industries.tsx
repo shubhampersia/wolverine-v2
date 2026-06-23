@@ -4,6 +4,7 @@ import {
   Car, Fuel, Droplets, Truck, Tractor, HardHat, Syringe, Plane,
   Zap, Waves, Shield, Gauge, Grid3X3, Wrench, Flower2, Package,
 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const industries = [
   { name: "Automotive", icon: Car },
@@ -27,6 +28,19 @@ const industries = [
 const Industries = () => {
   return (
     <Layout>
+<Helmet>
+  <title>Industries Served | WLVTEC</title>
+
+  <meta
+    name="description"
+    content="WLVTEC serves automotive, industrial, and engineering sectors with precision manufacturing solutions."
+  />
+
+  <link
+    rel="canonical"
+    href="https://wlvtec.com/industries"
+  />
+</Helmet>
       {/* ━━ HERO: Stripe background with offset heading ━━ */}
       <section className="section-stripe section-breath border-b hairline">
         <div className="max-w-7xl mx-auto px-6">

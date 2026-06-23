@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { FadeIn } from "@/components/Animations";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const careerImages = [
   "/career/1.jpg",
@@ -15,6 +16,19 @@ const careerImages = [
 const About = () => {
   return (
     <Layout>
+<Helmet>
+  <title>About Us | WLVTEC</title>
+
+  <meta
+    name="description"
+    content="Learn about WLVTEC, our manufacturing capabilities, and our commitment to quality."
+  />
+
+  <link
+    rel="canonical"
+    href="https://wlvtec.com/about"
+  />
+</Helmet>
       {/* ━━ HERO: Split — dark left, image right ━━ */}
       <section className="px-4 sm:px-6 md:px-[2%] pt-[15px] sm:pt-[18px] pb-[15px] sm:pb-[18px] mb-[clamp(16px,2.5vh,32px)]">
         <div className="max-w-[1500px] mx-auto rounded-3xl overflow-hidden h-[75vh] sm:h-[80vh] md:h-[85vh]">

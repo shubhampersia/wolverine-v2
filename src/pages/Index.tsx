@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { FadeIn, StaggerContainer } from "@/components/Animations";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import heroImg from "@/assets/hero-factory.jpg";
 import aboutImg from "@/assets/about-facility.jpg";
 
@@ -44,58 +45,78 @@ const marqueeStyles = `
 const Index = () => {
   return (
     <Layout>
+  <Helmet>
+    <title>
+      Tube Bending & Engineered Tubular Assembly Manufacturer | WLVTEC
+    </title>
+
+    <meta
+      name="description"
+      content="WLVTEC provides precision tube bending and engineered tubular assembly solutions."
+    />
+
+    <link
+      rel="canonical"
+      href="https://wlvtec.com/"
+    />
+  </Helmet>
       {/* Inject marquee keyframes globally */}
       <style>{marqueeStyles}</style>
 
       {/* ━━ HERO: Full-bleed image with dark overlay ━━ */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/banner.png"
-            alt="Wolverine manufacturing facility"
-            className="w-full h-full object-cover"
-          />
-<div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />        </div>
+<section className="relative h-[85vh] min-h-[700px] flex items-center overflow-hidden">
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <img
+      src="/banner.png"
+      alt="Wolverine manufacturing facility"
+      className="w-full h-full object-cover object-center"
+    />
 
-        <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-28 w-full">
-          {/*
-            FIX 1 — Mobile hero text centering
-            • Added `text-center lg:text-left` to the inner column so the
-              heading, sub-copy, and CTA are centred on small screens.
-            • Removed the 12-col grid wrapper (it added no value on mobile
-              and was the reason content was left-flushed).
-          */}
-          <div className="text-center lg:text-left lg:max-w-[66%]">
-            <FadeIn>
-              <div className="numbered-label text-white/60 mb-6 justify-center lg:justify-start">
-                <span className="num">01</span> Precision Manufacturing
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h1 className="heading-display text-secondary-foreground">
-                Designed,
-                <br />
-                Manufactured,
-                <br />
-                Delivered.
-              </h1>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <p className="mt-6 text-white/85 max-w-md text-lg leading-relaxed mx-auto lg:mx-0">
-                A Legacy of Quality and Innovation in Tube Bending &amp;
-                Industrial Manufacturing.
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <div className="flex justify-center lg:justify-start">
-                <Link to="/contact" className="btn-primary mt-8 inline-flex">
-                  Get in Touch <ArrowRight size={16} />
-                </Link>
-              </div>
-            </FadeIn>
-          </div>
+    {/* Dark overlay for readability */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/20" />
+  </div>
+
+  {/* Content */}
+  <div className="relative max-w-7xl mx-auto px-6 py-20 w-full">
+    <div className="max-w-4xl text-center lg:text-left">
+      <FadeIn>
+        <div className="numbered-label text-white/60 mb-6 justify-center lg:justify-start">
+          <span className="num">01</span> Precision Manufacturing
         </div>
-      </section>
+      </FadeIn>
+
+      <FadeIn delay={0.1}>
+        <h1 className="heading-display text-white leading-tight">
+          Tube Bending &amp;
+          <br />
+          Engineered Tubular
+          <br />
+          Assembly Manufacturer
+        </h1>
+
+        <p className="text-white/70 text-xl mt-4">
+          Designed. Manufactured. Delivered.
+        </p>
+      </FadeIn>
+
+      <FadeIn delay={0.2}>
+        <p className="mt-6 text-white/85 max-w-2xl text-lg leading-relaxed mx-auto lg:mx-0">
+          A Legacy of Quality and Innovation in Tube Bending &amp;
+          Industrial Manufacturing.
+        </p>
+      </FadeIn>
+
+      <FadeIn delay={0.3}>
+        <div className="flex justify-center lg:justify-start">
+          <Link to="/contact" className="btn-primary mt-8 inline-flex">
+            Get in Touch <ArrowRight size={16} />
+          </Link>
+        </div>
+      </FadeIn>
+    </div>
+  </div>
+</section>
 
       {/* ━━ CLIENTS: Marquee band ━━ */}
       <section className="bg-white py-[80px] w-full overflow-hidden">

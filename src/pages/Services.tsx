@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 
 type ServiceKey = | "bending"| "end" | "bead"  | "cutting" | "stamping" | "cleaning" | "assembly" | "surface";
@@ -112,6 +113,19 @@ const Services = () => {
 
   return (
     <Layout>
+<Helmet>
+  <title>Services | WLVTEC</title>
+
+  <meta
+    name="description"
+    content="Explore tube bending, welding, fabrication, and tubular assembly services offered by WLVTEC."
+  />
+
+  <link
+    rel="canonical"
+    href="https://wlvtec.com/services"
+  />
+</Helmet>
       {/* ━━ HERO: Dark with large type ━━ */}
       <section className="section-dark section-breath relative overflow-hidden">
         <div
