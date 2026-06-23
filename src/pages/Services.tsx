@@ -125,6 +125,23 @@ const Services = () => {
     rel="canonical"
     href="https://wlvtec.com/services"
   />
+
+  <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "provider": { "@type": "Organization", "name": "WLVTEC" },
+  "serviceType": "Tube Bending & Fabrication",
+  "areaServed": "Worldwide"
+})}</script>
+
+<script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wlvtec.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wlvtec.com/services" }
+  ]
+})}</script>
 </Helmet>
       {/* ━━ HERO: Dark with large type ━━ */}
       <section className="section-dark section-breath relative overflow-hidden">

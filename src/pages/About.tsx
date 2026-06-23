@@ -28,6 +28,15 @@ const About = () => {
     rel="canonical"
     href="https://wlvtec.com/about"
   />
+
+  <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wlvtec.com/" },
+    { "@type": "ListItem", "position": 2, "name": "About", "item": "https://wlvtec.com/about" }
+  ]
+})}</script>
 </Helmet>
       {/* ━━ HERO: Split — dark left, image right ━━ */}
       <section className="px-4 sm:px-6 md:px-[2%] pt-[15px] sm:pt-[18px] pb-[15px] sm:pb-[18px] mb-[clamp(16px,2.5vh,32px)]">

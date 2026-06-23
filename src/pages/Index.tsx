@@ -59,6 +59,24 @@ const Index = () => {
       rel="canonical"
       href="https://wlvtec.com/"
     />
+
+    <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "WLVTEC",
+      "url": "https://wlvtec.com",
+      "logo": "https://wlvtec.com/favicon.ico",
+      "contactPoint": { "@type": "ContactPoint", "contactType": "sales" }
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://wlvtec.com",
+      "name": "WLVTEC"
+    }
+  ]
+})}</script>
   </Helmet>
       {/* Inject marquee keyframes globally */}
       <style>{marqueeStyles}</style>

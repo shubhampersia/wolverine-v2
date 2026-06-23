@@ -76,6 +76,27 @@ const Contact = () => {
     rel="canonical"
     href="https://wlvtec.com/contact"
   />
+
+  <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wlvtec.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://wlvtec.com/contact" }
+  ]
+})}</script>
+
+<script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What tube diameters can WLVTEC bend?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Up to Ø38 mm via 5-axis CNC bending." }
+    }
+  ]
+})}</script>
 </Helmet>
       {/* ━━ HERO: Gold band header ━━ */}
       <section className="section-gold py-16 lg:py-24">

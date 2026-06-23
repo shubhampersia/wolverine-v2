@@ -40,6 +40,15 @@ const Industries = () => {
     rel="canonical"
     href="https://wlvtec.com/industries"
   />
+
+  <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wlvtec.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://wlvtec.com/industries" }
+  ]
+})}</script>
 </Helmet>
       {/* ━━ HERO: Stripe background with offset heading ━━ */}
       <section className="section-stripe section-breath border-b hairline">
