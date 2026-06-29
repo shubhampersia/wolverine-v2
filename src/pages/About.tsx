@@ -3,6 +3,9 @@ import { FadeIn } from "@/components/Animations";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Eye } from "lucide-react";
 
 const careerImages = [
   "/career/1.jpg",
@@ -14,6 +17,7 @@ const careerImages = [
 ];
 
 const About = () => {
+  const [openCertificate, setOpenCertificate] = useState(false);
   return (
     <Layout>
 <Helmet>
@@ -187,6 +191,57 @@ const About = () => {
           </div>
         </div>
       </section>
+{/* ━━ CERTIFICATIONS ━━ */}
+<section className="section-breath bg-muted/30">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      {/* Left Content */}
+      <FadeIn>
+        <div>
+          <div className="numbered-label mb-6">
+            <span className="num">03</span> Certifications
+          </div>
+
+          <h2 className="heading-section mb-4">
+            Our Certifications
+          </h2>
+
+          <p className="text-muted-foreground leading-relaxed max-w-xl">
+            Wolverine Tubes & Engineered Components operates under a
+  certified Quality Management System in accordance with
+  IATF 16949 and ISO 9001 standards. These certifications
+  reflect our commitment to delivering consistent product
+  quality, robust process controls, full traceability, and
+  continuous improvement across all manufacturing operations.
+          </p>
+        </div>
+      </FadeIn>
+
+      {/* Certificate Card */}
+      <FadeIn delay={0.1}>
+        <div
+          onClick={() => setOpenCertificate(true)}
+          className="relative group cursor-pointer w-fit mx-auto"
+        >
+          {/* Use an image preview/screenshot of the PDF */}
+<img
+  src="/cert1.jpg"
+  alt="Certificate"
+  className="w-[180px] h-[260px] object-cover rounded-xl border border-black shadow-md transition-transform duration-300 group-hover:scale-105"
+/>
+
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-black/25 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
+            <Eye className="w-6 h-6 text-white" />
+            <span className="text-white text-sm font-medium">
+              View Certificate
+            </span>
+          </div>
+        </div>
+      </FadeIn>
+    </div>
+  </div>
+</section>
 
       {/* ━━ CAREERS: Gold band CTA ━━ */}
       <section className="section-breath">
@@ -248,6 +303,20 @@ const About = () => {
           </div>
         </div>
       </section>
+<Dialog
+  open={openCertificate}
+  onOpenChange={setOpenCertificate}
+>
+  <DialogContent className="max-w-4xl p-0 overflow-hidden bg-white">
+    <div className="relative w-full max-h-[90vh] overflow-auto">
+      <img
+        src="/cert1.jpg"
+        alt="Certificate"
+        className="w-full h-auto object-contain"
+      />
+    </div>
+  </DialogContent>
+</Dialog>
     </Layout>
   );
 };
