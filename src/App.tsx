@@ -11,6 +11,7 @@ import Industries from "./pages/Industries.tsx";
 import ServiceDetail from "./pages/ServiceDetail.tsx";
 import IndustryDetail from "./pages/IndustryDetail.tsx";
 import Contact from "./pages/Contact.tsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/:industryKey" element={<IndustryDetail />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

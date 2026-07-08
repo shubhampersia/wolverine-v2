@@ -1,0 +1,36 @@
+# =========================================================
+# wlvtec.com — Apache config for IONOS shared/business hosting
+# =========================================================
+
+# --- SEO fix: legacy URL redirects (301 permanent) ---
+Redirect 301 /about-us.html               https://www.wlvtec.com/about
+Redirect 301 /contact-us.html             https://www.wlvtec.com/contact
+Redirect 301 /capabilities.html           https://www.wlvtec.com/industries
+Redirect 301 /products.html               https://www.wlvtec.com/services
+Redirect 301 /products-assemblies.html    https://www.wlvtec.com/services
+Redirect 301 /products-welding.html       https://www.wlvtec.com/services
+Redirect 301 /products-bending.html       https://www.wlvtec.com/services
+Redirect 301 /products-stamping.html      https://www.wlvtec.com/services
+Redirect 301 /products-brazing.html       https://www.wlvtec.com/services
+Redirect 301 /products-shaping.html       https://www.wlvtec.com/services
+Redirect 301 /products-machining.html     https://www.wlvtec.com/services
+Redirect 301 /privacy-policy.html         https://www.wlvtec.com/privacy-policy
+
+# --- Disable Apache's MultiViews content negotiation ---
+# public/about.png would otherwise be silently served for a request
+# to /about (no extension), bypassing the React app entirely.
+Options -MultiViews
+
+# --- SPA fallback (no mod_rewrite needed) ---
+# Lets /about, /services, /industries, /contact survive a hard reload
+# by serving index.html content instead of a raw 404.
+ErrorDocument 404 /index.html
+
+# --- Real security headers (only applied if mod_headers is available) ---
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>

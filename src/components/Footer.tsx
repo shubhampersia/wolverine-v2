@@ -48,8 +48,13 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-secondary-foreground/10 text-xs opacity-50 text-center">
-          © {new Date().getFullYear()} Wolverine. All rights reserved.
+        <div className="mt-12 pt-6 border-t border-secondary-foreground/10 text-xs opacity-50 text-center space-y-2">
+          <div>
+            <a href="/privacy-policy" className="underline underline-offset-4 hover:opacity-100">
+              Privacy Policy
+            </a>
+          </div>
+          <div>© {new Date().getFullYear()} Wolverine. All rights reserved.</div>
         </div>
       </div>
     </footer>
