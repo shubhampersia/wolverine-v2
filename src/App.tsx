@@ -10,6 +10,8 @@ import Services from "./pages/Services.tsx";
 import Industries from "./pages/Industries.tsx";
 import ServiceDetail from "./pages/ServiceDetail.tsx";
 import IndustryDetail from "./pages/IndustryDetail.tsx";
+import Blogs from "./pages/Blogs.tsx";
+import BlogDetail from "./pages/BlogDetail.tsx";
 import Contact from "./pages/Contact.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -38,6 +40,8 @@ const App = () => (
           <Route path="/services/:serviceKey" element={<ServiceDetail />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/:industryKey" element={<IndustryDetail />} />
+          <Route path="/blog" element={<Blogs />} />
+          <Route path="/blog/:blogKey" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />

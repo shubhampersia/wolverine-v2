@@ -17,7 +17,7 @@ const careerImages = [
 ];
 
 const About = () => {
-  const [openCertificate, setOpenCertificate] = useState(false);
+const [openCertificate, setOpenCertificate] = useState<string | null>(null);
   return (
     <Layout>
 <Helmet>
@@ -218,27 +218,50 @@ const About = () => {
       </FadeIn>
 
       {/* Certificate Card */}
-      <FadeIn delay={0.1}>
-        <div
-          onClick={() => setOpenCertificate(true)}
-          className="relative group cursor-pointer w-fit mx-auto"
-        >
-          {/* Use an image preview/screenshot of the PDF */}
-<img
-  src="/cert1.jpg"
-  alt="Certificate"
-  className="w-[180px] h-[260px] object-cover rounded-xl border border-black shadow-md transition-transform duration-300 group-hover:scale-105"
-/>
+{/* Certificate Cards */}
+<FadeIn delay={0.1}>
+  <div className="flex flex-wrap justify-center gap-6">
 
-          {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-black/25 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
-            <Eye className="w-6 h-6 text-white" />
-            <span className="text-white text-sm font-medium">
-              View Certificate
-            </span>
-          </div>
-        </div>
-      </FadeIn>
+    {/* Certificate 1 */}
+    <div
+      onClick={() => setOpenCertificate("/cert1.jpg")}
+      className="relative group cursor-pointer w-fit"
+    >
+      <img
+        src="/cert1.jpg"
+        alt="IATF 16949 Certificate"
+        className="w-[180px] h-[260px] object-cover rounded-xl border border-black shadow-md transition-transform duration-300 group-hover:scale-105"
+      />
+
+      <div className="absolute inset-0 bg-black/25 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
+        <Eye className="w-6 h-6 text-white" />
+        <span className="text-white text-sm font-medium">
+          View Certificate
+        </span>
+      </div>
+    </div>
+
+    {/* Certificate 2 */}
+    <div
+      onClick={() => setOpenCertificate("/cert2.jpeg")}
+      className="relative group cursor-pointer w-fit"
+    >
+      <img
+        src="/cert2.jpeg"
+        alt="ISO 9001 Certificate"
+        className="w-[180px] h-[260px] object-cover rounded-xl border border-black shadow-md transition-transform duration-300 group-hover:scale-105"
+      />
+
+      <div className="absolute inset-0 bg-black/25 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
+        <Eye className="w-6 h-6 text-white" />
+        <span className="text-white text-sm font-medium">
+          View Certificate
+        </span>
+      </div>
+    </div>
+
+  </div>
+</FadeIn>
     </div>
   </div>
 </section>
@@ -304,16 +327,22 @@ const About = () => {
         </div>
       </section>
 <Dialog
-  open={openCertificate}
-  onOpenChange={setOpenCertificate}
+  open={!!openCertificate}
+  onOpenChange={(open) => {
+    if (!open) {
+      setOpenCertificate(null);
+    }
+  }}
 >
   <DialogContent className="max-w-4xl p-0 overflow-hidden bg-white">
     <div className="relative w-full max-h-[90vh] overflow-auto">
-      <img
-        src="/cert1.jpg"
-        alt="Certificate"
-        className="w-full h-auto object-contain"
-      />
+      {openCertificate && (
+        <img
+          src={openCertificate}
+          alt="Certificate"
+          className="w-full h-auto object-contain"
+        />
+      )}
     </div>
   </DialogContent>
 </Dialog>

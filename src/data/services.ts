@@ -13,7 +13,7 @@ export interface ServiceItem {
   label: string;
   title: string;
   description: string;
-  image: string;
+  images: string[];
   details: string[];
 }
 
@@ -24,7 +24,7 @@ export const services: ServiceItem[] = [
     title: "CNC Bending (5-Axis)",
     description:
       "Precision bending of tubes up to Ø38 mm diameter, enabling complex multi-plane bends through five-axis CNC control. The process delivers high accuracy, repeatability, and consistent dimensional performance.",
-    image: "/axis.jpeg",
+    images: ["/axis.jpeg"],
     details: [
       "Advanced 5-axis control for complex multi-plane bends.",
       "Repeatable accuracy and tight dimensional control.",
@@ -37,20 +37,24 @@ export const services: ServiceItem[] = [
     title: "End Forming",
     description:
       "Tube-end forming operations including expansion, reduction, flaring, beading, and necking. Interchangeable tooling allows a range of end profiles to be produced according to engineering specifications.",
-    image: "/end.png",
+    images: [
+      "/end1.png",
+      "/end2.png",
+    ],
     details: [
       "Flexible tooling for multiple end-form profiles.",
       "Precision expansion, reduction, flaring, and necking.",
       "Engineered to meet customer assembly requirements.",
     ],
   },
+
   {
     key: "bead",
     label: "Beading",
     title: "Beading",
     description:
       "Formation of uniform bead profiles on tubes to support hose retention and assembly requirements. The process ensures consistent dimensions, secure fitment, and reliable performance.",
-    image: "/bead.png",
+    images: ["/bead.png"],
     details: [
       "Uniform bead geometry for reliable hose retention.",
       "Consistent dimensions across production batches.",
@@ -63,7 +67,7 @@ export const services: ServiceItem[] = [
     title: "Flame Brazing",
     description:
       "Joining of metallic tube assemblies using oxygen and acetylene heating with brazing filler material. Suitable for copper, brass, steel, and other metal components requiring strong, leak-proof joints.",
-    image: "/flame.jpeg",
+    images: ["/flame.jpeg"],
     details: [
       "Oxygen-acetylene flame brazing for metallic assemblies.",
       "Controlled heat input ensures strong joints.",
@@ -76,7 +80,7 @@ export const services: ServiceItem[] = [
     title: "Induction Brazing",
     description:
       "High-frequency induction heating for precise brazing of metallic components. The method provides localized heating, consistent joint quality, and reduced oxidation during production.",
-    image: "/induction.PNG",
+    images: ["/induction.PNG"],
     details: [
       "Localized heating for consistent joint quality.",
       "Reduced oxidation and clean brazed surfaces.",
@@ -89,11 +93,24 @@ export const services: ServiceItem[] = [
     title: "Ultrasonic Cleaning",
     description:
       "Removal of oil, grease, dirt, and machining contaminants using ultrasonic cleaning and alkaline degreasing solutions. Suitable for fabricated parts, tubes, and assemblies with complex geometries.",
-    image: "/ultrasonic.png",
+    images: ["/ultrasonic.png"],
     details: [
       "Ultrasonic agitation removes contaminants from complex parts.",
       "Alkaline degreasing solutions for thorough cleaning.",
       "Well suited for tubes, assemblies, and precision components.",
+    ],
+  },
+    {
+    key: "surface",
+    label: "Post-Process Surface Treatment",
+    title: "Post-Process Surface Treatment",
+    description:
+      "Surface treatment of fabricated components to improve cleanliness, corrosion resistance, appearance, and surface characteristics. Treatments are selected based on material specifications, functional requirements, and end-use application standards.",
+    images: ["/surface.jpg"],
+    details: [
+      "Surface conditioning for improved corrosion resistance.",
+      "Enhanced cleanliness and finished appearance.",
+      "Treatments selected based on material and application needs.",
     ],
   },
   {
@@ -102,24 +119,11 @@ export const services: ServiceItem[] = [
     title: "Assembly",
     description:
       "Assembly of components as per approved drawings and work instructions, with verification of fitment, alignment, and assembly quality before release to subsequent operations.",
-    image: "/assembly.jpg",
+    images: ["/assembly.jpg"],
     details: [
       "Component assembly according to customer drawings.",
       "Fitment and alignment verification before release.",
       "Quality checks integrated into every production step.",
-    ],
-  },
-  {
-    key: "surface",
-    label: "Post-Process Surface Treatment",
-    title: "Post-Process Surface Treatment",
-    description:
-      "Surface treatment of fabricated components to improve cleanliness, corrosion resistance, appearance, and surface characteristics. Treatments are selected based on material specifications, functional requirements, and end-use application standards.",
-    image: "/surface.jpg",
-    details: [
-      "Surface conditioning for improved corrosion resistance.",
-      "Enhanced cleanliness and finished appearance.",
-      "Treatments selected based on material and application needs.",
     ],
   },
 ];

@@ -109,7 +109,7 @@ const Services = () => {
                 <div className="numbered-label mb-6">
                   <span className="num">01</span> What We Offer
                 </div>
-                <h1 className="heading-display mb-6">Services</h1>
+                <h1 className="heading-display mb-6">Solutions</h1>
                 <div className="divider-gold mb-8" />
                 <p className="text-secondary-foreground/60 max-w-2xl text-lg leading-relaxed">
                   Manufacturing services focused on tube bending operations,
@@ -122,7 +122,7 @@ const Services = () => {
               <FadeIn delay={0.2}>
                 <div className="grid grid-cols-2 gap-6 w-full">
                   <div className="border-l-2 border-primary pl-4">
-                    <span className="text-3xl font-bold text-secondary-foreground">9+</span>
+                    <span className="text-3xl font-bold text-secondary-foreground">11+</span>
                     <p className="text-secondary-foreground/50 text-sm mt-1">Core Processes</p>
                   </div>
                   <div className="border-l-2 border-primary pl-4">
@@ -203,11 +203,22 @@ const Services = () => {
               </p>
             </div>
             {/* RIGHT */}
-            <div className="flex justify-center md:justify-end">
-              <div className="w-full md:w-[70%] aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
-                <img src={data.image} alt={data.title} className="w-full h-full object-cover" />
-              </div>
-            </div>
+<div className="flex justify-center md:justify-end">
+  <div className="w-full md:w-[70%] grid grid-cols-1 gap-4">
+    {data.images.map((image, index) => (
+      <div
+        key={image}
+        className="w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-lg"
+      >
+        <img
+          src={image}
+          alt={`${data.title} ${index + 1}`}
+          className="w-full h-full object-cover"
+        />
+      </div>
+    ))}
+  </div>
+</div>
           </div>
         </div>
       </section>

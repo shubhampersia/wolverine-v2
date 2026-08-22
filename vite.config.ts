@@ -21,7 +21,7 @@ export default defineConfig(async ({ mode }) => ({   // ADD async HERE
       plugins: mode === "production"
         ? [
             (await import("@prerenderer/rollup-plugin")).default({
-              routes: ["/", "/about", "/services", "/industries", "/contact"],
+              routes: ["/", "/about", "/services", "/industries", "/blog", "/contact"],
               renderer: new (await import("@prerenderer/renderer-puppeteer")).default(),
             }),
           ]
