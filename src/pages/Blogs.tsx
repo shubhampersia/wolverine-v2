@@ -12,6 +12,17 @@ const formatDate = (iso: string) =>
     day: "numeric",
   });
 
+const blogImages: Record<string, string> = {
+  "evaluate-automotive-parts-suppliers-checklist": "/blog 1.png",
+  "tier1-vs-tier2-automotive-parts-suppliers": "/blog 2 .png",
+  "automotive-parts-supplier-certifications-iatf-16949": "/blog 3.png",
+  "red-flags-shortlisting-automotive-parts-suppliers": "/blog 4 .png",
+  "automotive-component-manufacturers-drawing-to-dispatch": "/blog 5.png",
+  "in-house-tool-and-die-automotive-component-manufacturers": "/blog 6.png",
+  "zero-defect-quality-control-automotive-component-manufacturers": "/blog 7.png",
+  "localisation-india-automotive-component-manufacturers": "/blog 8.png",
+};
+
 const Blogs = () => {
   return (
     <Layout>
@@ -102,6 +113,14 @@ const Blogs = () => {
                     hover:shadow-lg
                   "
                 >
+                  {blogImages[post.key] && (
+                    <img
+                      src={blogImages[post.key]}
+                      alt={post.title}
+                      className="aspect-[16/9] w-full object-cover"
+                    />
+                  )}
+
                   <div className="p-6 flex flex-col flex-1">
 
                     {/* CATEGORY + READ TIME */}

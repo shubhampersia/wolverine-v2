@@ -1,8 +1,26 @@
 import Layout from "@/components/Layout";
 import { FadeIn, StaggerContainer } from "@/components/Animations";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { industries } from "@/data/industries";
+
+const industryImages: Record<string, string> = {
+  automotive: "/industries/Automotive.png",
+  "engine-oil-cooling": "/industries/Engine Oil Cooling.png",
+  "oil-gas-equipment": "/industries/Oil & Gas Equipment.png",
+  "commercial-vehicles": "/industries/Commercial Vehicles.png",
+  "agricultural-equipment": "/industries/Agricultural Equipment.png",
+  "construction-equipment": "/industries/Construction Equipment.png",
+  "medical-components": "/industries/Medical Components.png",
+  aerospace: "/industries/Aerospace.png",
+  "electrical-power": "/industries/Electrical Power.png",
+  "consumer-appliance": "/industries/Consumer Appliance.png",
+  "electrical-cabinets": "/industries/Electrical Cabinets.png",
+  "pumps-compressors": "/industries/Pumps & Compressors.png",
+  "industrial-racks": "/industries/Industrial Racks.png",
+  "hardware-fasteners": "/industries/Hardware & Fasteners.png",
+  "lawn-garden": "/industries/Lawn & Garden.png",
+  "packaging-equipment": "/industries/Packaging Equipment.png",
+};
 
 const Industries = () => {
   return (
@@ -51,14 +69,18 @@ const Industries = () => {
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {industries.map((ind) => (
               <FadeIn key={ind.key}>
-                <Link
-                  to={`/industries/${ind.key}`}
-className="rounded-2xl border border-secondary-foreground/10 p-6 flex flex-col items-center text-center gap-4 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group shadow-none"                >
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <ind.icon size={28} className="text-primary" strokeWidth={1.5} />
-                  </div>
-                  <span className="font-semibold text-sm text-white">{ind.name}</span>
-                </Link>
+                <div
+                  className="overflow-hidden rounded-2xl border border-secondary-foreground/10 flex flex-col text-center hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group shadow-none"
+                >
+                  <img
+                    src={industryImages[ind.key]}
+                    alt={ind.name}
+                    className="aspect-[4/3] w-full object-cover"
+                  />
+                  <span className="p-6 font-semibold text-sm text-white">
+                    {ind.name}
+                  </span>
+                </div>
               </FadeIn>
             ))}
           </StaggerContainer>
