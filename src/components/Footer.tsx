@@ -1,10 +1,11 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
             <h4 className="font-bold text-lg mb-4">Address</h4>
             <div className="flex items-start gap-3 text-sm opacity-80">
@@ -62,6 +63,18 @@ const Footer = () => {
                   <span>{loc}</span>
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-lg mb-4">Resources</h4>
+            <div className="space-y-2 text-sm opacity-80">
+              <Link to="/automotive-component-manufacturers" className="block hover:opacity-100">
+                Automotive Component Manufacturers
+              </Link>
+              <Link to="/auto-parts-manufacturers-india" className="block hover:opacity-100">
+                Auto Parts Manufacturers in India
+              </Link>
             </div>
           </div>
         </div>

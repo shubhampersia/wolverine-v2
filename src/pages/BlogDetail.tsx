@@ -20,6 +20,23 @@ type ChecklistItem = {
 
 const CHECKLIST_PAGE_SIZE = 5;
 
+const renderBlogText = (text: string) =>
+  text.split(/(automotive parts suppliers|Wolverine)/gi).map((part, index) =>
+    /^(automotive parts suppliers|Wolverine)$/i.test(part) ? (
+      <a
+        key={`${part}-${index}`}
+        href="https://www.wlvtec.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline decoration-primary/50 underline-offset-2 hover:decoration-primary"
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    ),
+  );
+
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    Interactive checklist:
    - Shows five evaluation points at a time on the left.
@@ -179,13 +196,13 @@ const ChecklistTabs = ({
               <p className="text-secondary-foreground/65 leading-8 max-w-3xl">
                 {activeItem.desc.includes("Tier-2:") ? (
                   <>
-                    <span>{activeItem.desc.split(" Tier-2:")[0]}</span>
+                    <span>{renderBlogText(activeItem.desc.split(" Tier-2:")[0])}</span>
                     <span className="block mt-2">
-                      Tier-2:{activeItem.desc.split(" Tier-2:")[1]}
+                      {renderBlogText(`Tier-2:${activeItem.desc.split(" Tier-2:")[1]}`)}
                     </span>
                   </>
                 ) : (
-                  activeItem.desc
+                  renderBlogText(activeItem.desc)
                 )}
               </p>
             </div>
@@ -217,7 +234,7 @@ const renderIntroSection = (section: any, key: string | number) => {
     return (
       <FadeIn key={key}>
         <p className="text-muted-foreground text-base lg:text-lg leading-relaxed mb-6">
-          {section.text}
+          {renderBlogText(section.text)}
         </p>
       </FadeIn>
     );

@@ -14,6 +14,8 @@ import Blogs from "./pages/Blogs.tsx";
 import BlogDetail from "./pages/BlogDetail.tsx";
 import Contact from "./pages/Contact.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
+import AutomotiveComponentManufacturers from "./pages/AutomotiveComponentManufacturers.tsx";
+import AutoPartsManufacturersIndia from "./pages/AutoPartsManufacturersIndia.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -44,6 +46,14 @@ const App = () => (
           <Route path="/blog/:blogKey" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route
+            path="/automotive-component-manufacturers"
+            element={<AutomotiveComponentManufacturers />}
+          />
+          <Route
+            path="/auto-parts-manufacturers-india"
+            element={<AutoPartsManufacturersIndia />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
