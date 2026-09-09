@@ -73,7 +73,7 @@ const Footer = () => {
                 Automotive Component Manufacturers
               </Link>
               <Link to="/auto-parts-manufacturers-india" className="block hover:opacity-100">
-                Auto Parts Manufacturers in India
+                Auto Parts Manufacturers
               </Link>
             </div>
           </div>

@@ -53,19 +53,19 @@ const AutomotiveComponentManufacturers = () => {
         />
         <link
           rel="canonical"
-          href="https://www.wlvtec.com/automotive-component-manufacturers"
+          href="https://wlvtec.com/automotive-component-manufacturers/"
         />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.wlvtec.com/" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://wlvtec.com/" },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Automotive Component Manufacturers",
-                item: "https://www.wlvtec.com/automotive-component-manufacturers",
+                item: "https://wlvtec.com/automotive-component-manufacturers/",
               },
             ],
           })}
@@ -98,29 +98,18 @@ const AutomotiveComponentManufacturers = () => {
             <div className="numbered-label mb-6">
               <span className="num">01</span> Precision Manufacturing
             </div>
-            <h1 className="heading-display mb-6 max-w-3xl">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] tracking-tight mb-6 max-w-none">
               Precision Manufacturing. Built for Performance.
             </h1>
             <div className="divider-gold mb-8" />
-            <p className="text-secondary-foreground/60 max-w-2xl text-lg leading-relaxed mb-8">
+            <p className="text-secondary-foreground/60 max-w-none text-lg leading-relaxed">
               Wolverine manufactures precision-engineered tubular and fabricated components for
               OEMs, Tier-1 suppliers, and industrial manufacturers worldwide. As part of the MMI
               Group, we bring together engineering expertise, advanced manufacturing capabilities,
               and disciplined quality systems to deliver components that meet the highest
               standards of performance, reliability, and consistency.
             </p>
-            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
-              Request a Quote <ArrowRight size={16} />
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ━━ INTRO ━━ */}
-      <section className="py-16 lg:py-20">
-        <div className="max-w-4xl mx-auto px-6">
-          <FadeIn>
-            <p className="text-muted-foreground leading-relaxed text-lg">
+            <p className="text-secondary-foreground/60 max-w-none text-lg leading-relaxed mt-6">
               With decades of manufacturing experience, we support customers across the product
               lifecycle, from design and development to full-scale production. Our focus is
               simple: transforming complex engineering requirements into dependable manufacturing
@@ -132,7 +121,7 @@ const AutomotiveComponentManufacturers = () => {
 
       {/* ━━ PRECISION & CONTROL ━━ */}
       <section className="py-16 lg:py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
             <div className="numbered-label mb-6">
               <span className="num">02</span> Process Discipline
@@ -158,7 +147,7 @@ const AutomotiveComponentManufacturers = () => {
 
       {/* ━━ AUTOMOTIVE APPLICATIONS ━━ */}
       <section className="py-16 lg:py-20">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
             <div className="numbered-label mb-6">
               <span className="num">03</span> Automotive Focus
@@ -183,7 +172,7 @@ const AutomotiveComponentManufacturers = () => {
 
       {/* ━━ INTEGRATED CAPABILITIES ━━ */}
       <section className="py-16 lg:py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
             <div className="numbered-label mb-6">
               <span className="num">04</span> Capabilities

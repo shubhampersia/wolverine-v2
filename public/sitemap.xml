@@ -5,19 +5,52 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://wlvtec.com/about</loc>
+    <loc>https://wlvtec.com/about/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wlvtec.com/services</loc>
+    <loc>https://wlvtec.com/services/</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://wlvtec.com/industries</loc>
+    <loc>https://wlvtec.com/industries/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wlvtec.com/contact</loc>
+    <loc>https://wlvtec.com/contact/</loc>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wlvtec.com/automotive-component-manufacturers/</loc>
+  </url>
+  <url>
+    <loc>https://wlvtec.com/auto-parts-manufacturers-india/</loc>
+  </url>
+  <url>
+    <loc>https://wlvtec.com/blog/</loc>
+  </url>
+  <url>
+    <loc>https://wlvtec.com/blog/evaluate-automotive-parts-suppliers-checklist/</loc>
+  </url>
+  <url>
+    <loc>https://wlvtec.com/blog/tier1-vs-tier2-automotive-parts-suppliers/</loc>
+  </url>
+  <url>
+    <loc>https://wlvtec.com/blog/automotive-parts-supplier-certifications-iatf-16949/</loc>
+  </url>
+  <url>
+    <loc>https://wlvtec.com/blog/red-flags-shortlisting-automotive-parts-suppliers/</loc>
+  </url>
+  <url>
+    <loc>https://wlvtec.com/blog/automotive-component-manufacturers-drawing-to-dispatch/</loc>
+  </url>
+  <url>
+    <loc>https://wlvtec.com/blog/in-house-tool-and-die-automotive-component-manufacturers/</loc>
+  </url>
+  <url>
+    <loc>https://wlvtec.com/blog/zero-defect-quality-control-automotive-component-manufacturers/</loc>
+  </url>
+  <url>
+    <loc>https://wlvtec.com/blog/localisation-india-automotive-component-manufacturers/</loc>
   </url>
 </urlset>

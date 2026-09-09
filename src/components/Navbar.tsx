@@ -3,12 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "@/assets/wolverine-logo.jpg";
 
-const resourceLinks = [
+const manufacturerLinks = [
   { label: "Automotive Component Manufacturers", path: "/automotive-component-manufacturers" },
-  { label: "Auto Parts Manufacturers in India", path: "/auto-parts-manufacturers-india" },
+  { label: "Auto Parts Manufacturers", path: "/auto-parts-manufacturers-india" },
 ];
-
-const servicesDropdownPaths = ["/services", ...resourceLinks.map((r) => r.path)];
 
 const navLinks = [
   { label: "About Us", path: "/about" },
@@ -21,20 +19,17 @@ const Navbar = () => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
-  const isResourcesActive = resourceLinks.some((r) => location.pathname === r.path);
-  const isServicesActive = location.pathname === "/services" || isResourcesActive;
+  const isManufacturerPage = manufacturerLinks.some((link) => location.pathname === link.path);
+  const isServicesActive = location.pathname === "/services" || isManufacturerPage;
 
   // Close the desktop dropdown(s) on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
         setServicesOpen(false);
-        setResourcesOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -45,9 +40,7 @@ const Navbar = () => {
   useEffect(() => {
     setMobileOpen(false);
     setMobileServicesOpen(false);
-    setMobileResourcesOpen(false);
     setServicesOpen(false);
-    setResourcesOpen(false);
   }, [location.pathname]);
 
   return (
@@ -115,7 +108,6 @@ const Navbar = () => {
               <div
                 onMouseLeave={() => {
                   setServicesOpen(false);
-                  setResourcesOpen(false);
                 }}
                 className="absolute left-0 top-full mt-3 w-64 rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden animate-in fade-in slide-in-from-top-1 duration-150"
               >
@@ -133,45 +125,20 @@ const Navbar = () => {
 
                 <div className="border-t border-gray-100" />
 
-                {/* Resources — nested dropdown, expands downward in place */}
-                <button
-                  onClick={() => setResourcesOpen((o) => !o)}
-                  className={`w-full flex items-center justify-between px-5 py-3 text-sm font-semibold transition-colors ${
-                    isResourcesActive || resourcesOpen
-                      ? "text-gray-900 bg-gray-50"
-                      : "text-gray-800 hover:bg-gray-50"
-                  }`}
-                >
-                  Resources
-                  <ChevronDown
-                    size={14}
-                    className={`transition-transform duration-200 ${
-                      resourcesOpen ? "rotate-180" : ""
+                {manufacturerLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setServicesOpen(false)}
+                    className={`block px-5 py-3 text-sm font-semibold transition-colors ${
+                      location.pathname === link.path
+                        ? "text-gray-900 bg-gray-50"
+                        : "text-gray-800 hover:bg-gray-50"
                     }`}
-                  />
-                </button>
-
-                {resourcesOpen && (
-                  <div className="bg-gray-50/70 border-t border-gray-100 py-1 animate-in fade-in slide-in-from-top-1 duration-150">
-                    {resourceLinks.map((link) => (
-                      <Link
-                        key={link.path}
-                        to={link.path}
-                        onClick={() => {
-                          setServicesOpen(false);
-                          setResourcesOpen(false);
-                        }}
-                        className={`block px-5 py-2.5 text-sm transition-colors ${
-                          location.pathname === link.path
-                            ? "text-gray-900 bg-gray-100"
-                            : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
                 <div className="h-1" />
               </div>
             )}
@@ -247,37 +214,17 @@ const Navbar = () => {
                 Solutions
               </Link>
 
-              {/* Resources (nested expandable) */}
-              <button
-                onClick={() => setMobileResourcesOpen((o) => !o)}
-                className={`w-full flex items-center justify-between py-2 text-sm font-semibold ${
-                  isResourcesActive ? "text-gray-900" : "text-gray-700"
-                }`}
-              >
-                Resources
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${
-                    mobileResourcesOpen ? "rotate-180" : ""
+              {manufacturerLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`block py-2 text-sm font-semibold ${
+                    location.pathname === link.path ? "text-gray-900" : "text-gray-700"
                   }`}
-                />
-              </button>
-
-              {mobileResourcesOpen && (
-                <div className="pl-4 border-l border-gray-200 space-y-1">
-                  {resourceLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      className={`block py-2 text-sm ${
-                        location.pathname === link.path ? "text-gray-900" : "text-gray-600"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           )}
 

@@ -64,23 +64,23 @@ const AutoPartsManufacturersIndia = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Auto Parts Manufacturers in India | WLVTEC</title>
+        <title>Auto Parts Manufacturers | WLVTEC</title>
         <meta
           name="description"
           content="WLVTEC supports automotive manufacturing requirements through tube bending, engineered tubular assemblies, and associated production processes at our Chennai facility."
         />
-        <link rel="canonical" href="https://www.wlvtec.com/auto-parts-manufacturers-india" />
+        <link rel="canonical" href="https://wlvtec.com/auto-parts-manufacturers-india/" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.wlvtec.com/" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://wlvtec.com/" },
               {
                 "@type": "ListItem",
                 position: 2,
-                name: "Auto Parts Manufacturers in India",
-                item: "https://www.wlvtec.com/auto-parts-manufacturers-india",
+                name: "Auto Parts Manufacturers",
+                item: "https://wlvtec.com/auto-parts-manufacturers-india/",
               },
             ],
           })}
@@ -113,9 +113,11 @@ const AutoPartsManufacturersIndia = () => {
             <div className="numbered-label mb-6">
               <span className="num">01</span> Auto Parts Manufacturing
             </div>
-            <h1 className="heading-display mb-6 max-w-3xl">Auto Parts Manufacturing</h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] tracking-tight mb-6 max-w-none">
+              Auto Parts Manufacturing
+            </h1>
             <div className="divider-gold mb-8" />
-            <p className="text-secondary-foreground/60 max-w-2xl text-lg leading-relaxed mb-8">
+            <p className="text-secondary-foreground/60 max-w-none text-lg leading-relaxed">
               WLVTEC supports automotive manufacturing requirements through tube bending,
               engineered tubular assemblies, and associated production processes. Manufacturing
               activities are carried out using customer-provided engineering documentation and
@@ -124,16 +126,13 @@ const AutoPartsManufacturersIndia = () => {
               automotive applications, the company supports customers seeking reliable production
               partners among auto parts manufacturers in India.
             </p>
-            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
-              Request a Quote <ArrowRight size={16} />
-            </Link>
           </FadeIn>
         </div>
       </section>
 
       {/* ━━ PRODUCTION PROCESS ━━ */}
       <section className="py-16 lg:py-20">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
             <div className="numbered-label mb-6">
               <span className="num">02</span> Production Process
@@ -142,7 +141,7 @@ const AutoPartsManufacturersIndia = () => {
             <div className="divider-gold mb-6" />
             <p className="text-muted-foreground leading-relaxed">
               Production begins with material identification and process planning, followed by
-              forming, tube bending &amp; brazing, assembly alterations, inspection, and
+              forming, Tube Bending &amp; Brazing, assembly alterations, inspection, and
               documentation. Components are manufactured in accordance with approved drawings and
               bills of materials, ensuring consistency throughout the production cycle. Defined
               inspection and documentation practices support traceability from raw material
@@ -154,7 +153,7 @@ const AutoPartsManufacturersIndia = () => {
 
       {/* ━━ CAPABILITIES ━━ */}
       <section className="py-16 lg:py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
             <div className="numbered-label mb-6">
               <span className="num">03</span> Chennai Facility
@@ -186,7 +185,7 @@ const AutoPartsManufacturersIndia = () => {
 
       {/* ━━ ASSEMBLY & QUALITY ━━ */}
       <section className="py-16 lg:py-20">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
             <div className="numbered-label mb-6">
               <span className="num">04</span> Assembly &amp; Quality
@@ -207,7 +206,7 @@ const AutoPartsManufacturersIndia = () => {
 
       {/* ━━ SUPPLY CHAIN ━━ */}
       <section className="py-16 lg:py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
             <div className="numbered-label mb-6">
               <span className="num">05</span> Global Supply Support
@@ -234,7 +233,7 @@ const AutoPartsManufacturersIndia = () => {
 
       {/* ━━ INDUSTRIES SERVED ━━ */}
       <section className="py-16 lg:py-20">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
             <div className="numbered-label mb-6">
               <span className="num">06</span> Industries Served
