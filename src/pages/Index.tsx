@@ -48,7 +48,7 @@ const Index = () => {
     <Layout>
   <Helmet>
     <title>
-      Tube Bending & Engineered Tubular Assembly Manufacturer | WLVTEC
+      Tube Bending & Engineered Tubular Assembly Manufacturer
     </title>
 
     <meta

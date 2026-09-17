@@ -1803,7 +1803,7 @@ const BlogDetail = () => {
   const [relatedPage, setRelatedPage] = useState(0);
 
   if (!blogKey || !data) {
-    return <Navigate to="/blog" replace />;
+    return <Navigate to="/blogs" replace />;
   }
 
   const otherPosts = blogs.filter((b) => b.key !== data.key);
@@ -2262,7 +2262,7 @@ const BlogDetail = () => {
         <meta name="description" content={data.metaDescription} />
         <link
           rel="canonical"
-          href={`https://wlvtec.com/blog/${data.key}`}
+          href={`https://wlvtec.com/blogs/${data.key}`}
         />
 
         {isTierSupplierBlog && (
@@ -2375,7 +2375,7 @@ const BlogDetail = () => {
             datePublished: data.date,
             description: data.metaDescription,
             publisher: { "@type": "Organization", name: "WLVTEC" },
-            mainEntityOfPage: `https://wlvtec.com/blog/${data.key}`,
+            mainEntityOfPage: `https://wlvtec.com/blogs/${data.key}`,
           })}
         </script>
 
@@ -2393,14 +2393,14 @@ const BlogDetail = () => {
               {
                 "@type": "ListItem",
                 position: 2,
-                name: "Blog",
-                item: "https://wlvtec.com/blog",
+                name: "Blogs",
+                item: "https://wlvtec.com/blogs",
               },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: data.title,
-                item: `https://wlvtec.com/blog/${data.key}`,
+                item: `https://wlvtec.com/blogs/${data.key}`,
               },
             ],
           })}
@@ -2415,11 +2415,11 @@ const BlogDetail = () => {
           <FadeIn>
             <div className="mb-8">
               <Link
-                to="/blog"
+                to="/blogs"
                 className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
               >
                 <ArrowLeft size={16} />
-                Back to blog
+                Back to blogs
               </Link>
             </div>
 
@@ -2998,7 +2998,7 @@ const BlogDetail = () => {
             <FadeIn>
               <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between mb-10">
                 <div>
-                  <h2 className="heading-section">More From the Blog</h2>
+                  <h2 className="heading-section">More From the Blogs</h2>
                   <div className="divider-gold mt-5" />
                 </div>
 
@@ -3041,7 +3041,7 @@ const BlogDetail = () => {
               {visibleRelatedPosts.map((post, i) => (
                 <FadeIn key={post.key} delay={i * 0.06}>
                   <Link
-                    to={`/blog/${post.key}`}
+                    to={`/blogs/${post.key}`}
                     className="group h-full flex flex-col rounded-2xl border border-secondary-foreground/10 bg-secondary/20 overflow-hidden hover:border-primary/50 hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="p-6 flex flex-col min-h-[190px]">

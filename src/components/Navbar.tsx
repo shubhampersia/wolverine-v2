@@ -11,7 +11,7 @@ const manufacturerLinks = [
 const navLinks = [
   { label: "About Us", path: "/about" },
   { label: "Industries", path: "/industries" },
-  { label: "Blog", path: "/blog" },
+  { label: "Blogs", path: "/blogs" },
   { label: "Contact Us", path: "/contact" },
 ];
 
@@ -81,50 +81,42 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Services dropdown trigger */}
-          <div className="relative" ref={navRef}>
-            <button
-              onClick={() => setServicesOpen((o) => !o)}
-              onMouseEnter={() => setServicesOpen(true)}
+          {/* Services link + dropdown trigger */}
+          <div
+            className="relative"
+            ref={navRef}
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <div
               className={`relative flex items-center gap-1 text-sm font-medium transition-colors duration-200 ${
                 isServicesActive ? "text-gray-900" : "text-gray-600 hover:text-gray-900"
               }`}
             >
-              Services
-              <ChevronDown
-                size={14}
-                className={`transition-transform duration-200 ${
-                  servicesOpen ? "rotate-180" : ""
-                }`}
-              />
+              <Link to="/services">Services</Link>
+              <button
+                type="button"
+                aria-label="Toggle services dropdown"
+                aria-expanded={servicesOpen}
+                onClick={() => setServicesOpen((o) => !o)}
+                className="flex items-center"
+              >
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-200 ${
+                    servicesOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
               <span
                 className={`absolute -bottom-1 left-0 h-[2px] bg-yellow-400 transition-all duration-300 ${
                   isServicesActive ? "w-full" : "w-0"
                 }`}
               />
-            </button>
+            </div>
 
             {servicesOpen && (
-              <div
-                onMouseLeave={() => {
-                  setServicesOpen(false);
-                }}
-                className="absolute left-0 top-full mt-3 w-64 rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden animate-in fade-in slide-in-from-top-1 duration-150"
-              >
-                <Link
-                  to="/services"
-                  onClick={() => setServicesOpen(false)}
-                  className={`block px-5 py-3 text-sm font-semibold transition-colors ${
-                    location.pathname === "/services"
-                      ? "text-gray-900 bg-gray-50"
-                      : "text-gray-800 hover:bg-gray-50"
-                  }`}
-                >
-                  Solutions
-                </Link>
-
-                <div className="border-t border-gray-100" />
-
+              <div className="absolute left-0 top-full mt-3 w-64 rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden animate-in fade-in slide-in-from-top-1 duration-150">
                 {manufacturerLinks.map((link) => (
                   <Link
                     key={link.path}
@@ -144,7 +136,7 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Industries, Blog, Contact Us */}
+          {/* Industries, Blogs, Contact Us */}
           {navLinks.slice(1).map((link) => (
             <Link
               key={link.path}
@@ -188,32 +180,33 @@ const Navbar = () => {
           </Link>
 
           {/* Services (expandable) */}
-          <button
-            onClick={() => setMobileServicesOpen((o) => !o)}
-            className={`w-full flex items-center justify-between py-2.5 text-sm font-medium ${
-              isServicesActive ? "text-gray-900" : "text-gray-600"
-            }`}
-          >
-            Services
-            <ChevronDown
-              size={16}
-              className={`transition-transform duration-200 ${
-                mobileServicesOpen ? "rotate-180" : ""
+          <div className="w-full flex items-center justify-between py-2.5">
+            <Link
+              to="/services"
+              className={`text-sm font-medium ${
+                isServicesActive ? "text-gray-900" : "text-gray-600"
               }`}
-            />
-          </button>
+            >
+              Services
+            </Link>
+            <button
+              type="button"
+              aria-label="Toggle services submenu"
+              aria-expanded={mobileServicesOpen}
+              onClick={() => setMobileServicesOpen((o) => !o)}
+              className={isServicesActive ? "text-gray-900" : "text-gray-600"}
+            >
+              <ChevronDown
+                size={16}
+                className={`transition-transform duration-200 ${
+                  mobileServicesOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
 
           {mobileServicesOpen && (
             <div className="pl-4 border-l border-gray-200 space-y-1 mb-1">
-              <Link
-                to="/services"
-                className={`block py-2 text-sm font-semibold ${
-                  location.pathname === "/services" ? "text-gray-900" : "text-gray-700"
-                }`}
-              >
-                Solutions
-              </Link>
-
               {manufacturerLinks.map((link) => (
                 <Link
                   key={link.path}

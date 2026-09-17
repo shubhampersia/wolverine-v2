@@ -42,8 +42,8 @@ const App = () => (
           <Route path="/services/:serviceKey" element={<ServiceDetail />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/:industryKey" element={<IndustryDetail />} />
-          <Route path="/blog" element={<Blogs />} />
-          <Route path="/blog/:blogKey" element={<BlogDetail />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/:blogKey" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route

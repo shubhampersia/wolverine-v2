@@ -27,14 +27,14 @@ const Blogs = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Blog | WLVTEC</title>
+        <title>Blogs | WLVTEC</title>
 
         <meta
           name="description"
           content="Insights on tube bending, automotive sourcing, and precision manufacturing from the WLVTEC team."
         />
 
-        <link rel="canonical" href="https://wlvtec.com/blog" />
+        <link rel="canonical" href="https://wlvtec.com/blogs" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -50,8 +50,8 @@ const Blogs = () => {
               {
                 "@type": "ListItem",
                 position: 2,
-                name: "Blog",
-                item: "https://wlvtec.com/blog",
+                name: "Blogs",
+                item: "https://wlvtec.com/blogs",
               },
             ],
           })}
@@ -75,7 +75,7 @@ const Blogs = () => {
               <span className="num">01</span> Insights
             </div>
 
-            <h1 className="heading-display mb-6">Blog</h1>
+            <h1 className="heading-display mb-6">Blogs</h1>
 
             <div className="divider-gold mb-8" />
 
@@ -94,7 +94,7 @@ const Blogs = () => {
             {blogs.map((post, i) => (
               <FadeIn key={post.key} delay={i * 0.06}>
                 <Link
-                  to={`/blog/${post.key}`}
+                  to={`/blogs/${post.key}`}
                   className="
                     group
                     h-full

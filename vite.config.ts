@@ -26,7 +26,7 @@ export default defineConfig(async ({ mode }) => ({   // ADD async HERE
                 "/about",
                 "/services",
                 "/industries",
-                "/blog",
+                "/blogs",
                 "/contact",
                 "/privacy-policy",
                 "/automotive-component-manufacturers",
