@@ -53,7 +53,7 @@ const Index = () => {
 
     <meta
       name="description"
-      content="WLVTEC provides precision tube bending and engineered tubular assembly solutions."
+      content="Wolverine is an automotive parts supplier in India serving leading OEMs. Precision tube bending, welding and assembly from Chennai."
     />
 
     <link
@@ -66,8 +66,8 @@ const Index = () => {
   "@type": "WebPage",
   "@id": "https://www.wlvtec.com/#webpage",
   "url": "https://www.wlvtec.com/",
-  "name": "Wolverine | Industrial Manufacturing Solutions",
-  "description": "Wolverine - Industrial Manufacturing Solutions",
+  "name": "Automotive Parts Supplier in India | Wolverine",
+  "description": "Wolverine is an automotive parts supplier in India serving leading OEMs. Precision tube bending, welding and assembly from Chennai.",
   "isPartOf": { "@id": "https://www.wlvtec.com/#website" },
   "about": { "@id": "https://www.wlvtec.com/#organization" }
 })}</script>

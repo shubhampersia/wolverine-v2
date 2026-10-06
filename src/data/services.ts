@@ -119,7 +119,7 @@ export const services: ServiceItem[] = [
     title: "Assembly",
     description:
       "Assembly of components as per approved drawings and work instructions, with verification of fitment, alignment, and assembly quality before release to subsequent operations.",
-    images: ["/assembly.jpg"],
+    images: ["/assemblyy.png"],
     details: [
       "Component assembly according to customer drawings.",
       "Fitment and alignment verification before release.",

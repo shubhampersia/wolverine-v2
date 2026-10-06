@@ -67,7 +67,7 @@ const AutoPartsManufacturersIndia = () => {
         <title>Auto Parts Manufacturers | WLVTEC</title>
         <meta
           name="description"
-          content="WLVTEC supports automotive manufacturing requirements through tube bending, engineered tubular assemblies, and associated production processes at our Chennai facility."
+          content="Among the leading auto parts manufacturers in India, Wolverine delivers precision-engineered components, tube assemblies and welded parts for global OEMs."
         />
         <link rel="canonical" href="https://wlvtec.com/auto-parts-manufacturers-india/" />
         <script type="application/ld+json">

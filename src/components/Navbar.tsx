@@ -21,20 +21,45 @@ const Navbar = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isManufacturerPage = manufacturerLinks.some((link) => location.pathname === link.path);
   const isServicesActive = location.pathname === "/services" || isManufacturerPage;
+
+  const clearCloseTimer = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  // Open immediately, but close on a short delay so a quick mouse movement
+  // from the trigger down to the dropdown (or a click) never gets caught by
+  // a premature mouseleave and flickers shut.
+  const openServices = () => {
+    clearCloseTimer();
+    setServicesOpen(true);
+  };
+
+  const scheduleCloseServices = () => {
+    clearCloseTimer();
+    closeTimer.current = setTimeout(() => setServicesOpen(false), 200);
+  };
 
   // Close the desktop dropdown(s) on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        clearCloseTimer();
         setServicesOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Clean up any pending close timer on unmount
+  useEffect(() => () => clearCloseTimer(), []);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -85,8 +110,8 @@ const Navbar = () => {
           <div
             className="relative"
             ref={navRef}
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
+            onMouseEnter={openServices}
+            onMouseLeave={scheduleCloseServices}
           >
             <div
               className={`relative flex items-center gap-1 text-sm font-medium transition-colors duration-200 ${
@@ -98,7 +123,10 @@ const Navbar = () => {
                 type="button"
                 aria-label="Toggle services dropdown"
                 aria-expanded={servicesOpen}
-                onClick={() => setServicesOpen((o) => !o)}
+                onClick={() => {
+                  clearCloseTimer();
+                  setServicesOpen((o) => !o);
+                }}
                 className="flex items-center"
               >
                 <ChevronDown
@@ -116,22 +144,35 @@ const Navbar = () => {
             </div>
 
             {servicesOpen && (
-              <div className="absolute left-0 top-full mt-3 w-64 rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden animate-in fade-in slide-in-from-top-1 duration-150">
-                {manufacturerLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    onClick={() => setServicesOpen(false)}
-                    className={`block px-5 py-3 text-sm font-semibold transition-colors ${
-                      location.pathname === link.path
-                        ? "text-gray-900 bg-gray-50"
-                        : "text-gray-800 hover:bg-gray-50"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <div className="h-1" />
+              /* pt-3 (padding, not margin) keeps the visual gap inside this
+                 element's own hoverable box, so the pointer never crosses
+                 "empty" space between the trigger and the menu — that gap
+                 was what caused the flicker/disappear-on-approach bug. */
+              <div
+                className="absolute left-0 top-full pt-3 w-64 z-50"
+                onMouseEnter={openServices}
+                onMouseLeave={scheduleCloseServices}
+              >
+                <div className="rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden animate-in fade-in slide-in-from-top-1 duration-150">
+                  {manufacturerLinks.map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => {
+                        clearCloseTimer();
+                        setServicesOpen(false);
+                      }}
+                      className={`block px-5 py-3 text-sm font-semibold transition-colors ${
+                        location.pathname === link.path
+                          ? "text-gray-900 bg-gray-50"
+                          : "text-gray-800 hover:bg-gray-50"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                  <div className="h-1" />
+                </div>
               </div>
             )}
           </div>
