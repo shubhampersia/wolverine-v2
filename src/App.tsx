@@ -13,6 +13,7 @@ import IndustryDetail from "./pages/IndustryDetail.tsx";
 import Blogs from "./pages/Blogs.tsx";
 import BlogDetail from "./pages/BlogDetail.tsx";
 import Contact from "./pages/Contact.tsx";
+import ThankYou from "./pages/ThankYou.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import AutomotiveComponentManufacturers from "./pages/AutomotiveComponentManufacturers.tsx";
 import AutoPartsManufacturersIndia from "./pages/AutoPartsManufacturersIndia.tsx";
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/:blogKey" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route
             path="/automotive-component-manufacturers"

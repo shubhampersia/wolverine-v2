@@ -2,10 +2,12 @@ import Layout from "@/components/Layout";
 import { FadeIn } from "@/components/Animations";
 import { Phone, MapPin, Mail, ArrowRight, PhoneCall } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PhoneInput from "@/components/PhoneInput";
 import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     firstName: "",
     secondName: "",
@@ -50,10 +52,22 @@ const Contact = () => {
       return;
     }
 
+    const isLocalDev =
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1" ||
+      window.location.hostname === "0.0.0.0";
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
     try {
+      if (isLocalDev) {
+        setForm({ firstName: "", secondName: "", email: "", phone: "", description: "" });
+        setErrors({});
+        navigate("/thank-you", { state: { submitted: true } });
+        return;
+      }
+
       const res = await fetch("/send-email.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -66,12 +80,17 @@ const Contact = () => {
         }),
       });
 
+      const contentType = res.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        throw new Error("Non-JSON response from email endpoint");
+      }
+
       const result = await res.json();
 
       if (result.success) {
-        setSubmitStatus("success");
         setForm({ firstName: "", secondName: "", email: "", phone: "", description: "" });
         setErrors({});
+        navigate("/thank-you", { state: { submitted: true } });
       } else {
         setSubmitStatus("error");
       }
