@@ -21,6 +21,10 @@ const blogImages: Record<string, string> = {
   "in-house-tool-and-die-automotive-component-manufacturers": "/blog 6.png",
   "zero-defect-quality-control-automotive-component-manufacturers": "/blog 7.png",
   "localisation-india-automotive-component-manufacturers": "/blog 8.png",
+  "brazing-tube-bending-assemblies-bend-geometry-joint-integrity": "/blog 9.png",
+  "brazing-vs-welding-automotive-manufacturing": "/blog 10.png",
+  "manufacturing-partners-inventory-supply-chain-reduce-oem-lead-times": "/blog 11.png",
+  "ultrasonic-cleaning-bent-tubes-before-assembly": "/blog 12.png",
 };
 
 const Blogs = () => {

@@ -37,6 +37,32 @@ const renderBlogText = (text: string) =>
     ),
   );
 
+/* Inline links written as [anchor text](/internal-path) inside blog copy.
+   Used to add SEO internal links without touching the layouts. */
+const renderLinkedText = (text: string) =>
+  text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (!match) return part;
+    const [, label, href] = match;
+    const className =
+      "underline decoration-primary/60 underline-offset-2 hover:decoration-primary hover:text-foreground transition-colors";
+    return href.startsWith("/") ? (
+      <Link key={`${href}-${index}`} to={href} className={className}>
+        {label}
+      </Link>
+    ) : (
+      <a
+        key={`${href}-${index}`}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {label}
+      </a>
+    );
+  });
+
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    Interactive checklist:
    - Shows five evaluation points at a time on the left.
@@ -1565,7 +1591,7 @@ const LocalisationSplitSection = ({
                     key={`localisation-paragraph-${index}`}
                     className="text-muted-foreground text-base lg:text-lg leading-8"
                   >
-                    {section.text}
+                    {renderLinkedText(section.text)}
                   </p>
                 );
               }
@@ -1586,7 +1612,7 @@ const LocalisationSplitSection = ({
                           className="flex items-start gap-3 text-muted-foreground text-base lg:text-lg leading-7"
                         >
                           <span className="mt-[0.65rem] h-2 w-2 shrink-0 rounded-full bg-primary" />
-                          <span>{item}</span>
+                          <span>{renderLinkedText(item)}</span>
                         </li>
                       ))}
                     </ul>
@@ -1727,7 +1753,7 @@ const DrawingToDispatchIntroSection = ({
                       key={`intro-paragraph-${index}`}
                       className="text-muted-foreground text-base lg:text-lg leading-8"
                     >
-                      {section.text}
+                      {renderLinkedText(section.text)}
                     </p>
                   );
                 }
@@ -1748,7 +1774,7 @@ const DrawingToDispatchIntroSection = ({
                             className="flex items-start gap-3 text-muted-foreground text-base lg:text-lg leading-7"
                           >
                             <span className="mt-[0.65rem] h-2 w-2 shrink-0 rounded-full bg-primary" />
-                            <span>{item}</span>
+                            <span>{renderLinkedText(item)}</span>
                           </li>
                         ))}
                       </ul>
@@ -1798,8 +1824,16 @@ const BlogDetail = () => {
     data?.key === "in-house-tool-and-die-automotive-component-manufacturers";
   const isZeroDefectBlog =
     data?.key === "zero-defect-quality-control-automotive-component-manufacturers";
-  const isLocalisationBlog =
-    data?.key === "localisation-india-automotive-component-manufacturers";
+  // The localisation article and the Sep'26 blogs (brazing, brazing vs welding,
+  // inventory & supply chain, ultrasonic cleaning) share the same layout:
+  // heading left, content right, TL;DR beside the intro.
+  const isLocalisationBlog = [
+    "localisation-india-automotive-component-manufacturers",
+    "brazing-tube-bending-assemblies-bend-geometry-joint-integrity",
+    "brazing-vs-welding-automotive-manufacturing",
+    "manufacturing-partners-inventory-supply-chain-reduce-oem-lead-times",
+    "ultrasonic-cleaning-bent-tubes-before-assembly",
+  ].includes(data?.key ?? "");
   const [relatedPage, setRelatedPage] = useState(0);
 
   if (!blogKey || !data) {
@@ -2654,7 +2688,9 @@ const BlogDetail = () => {
               {(() => {
                 const localisationSections = data.sections as any[];
                 const introHeading =
-                  "Why Localisation Has Become a Strategic Priority";
+                  localisationSections.find(
+                    (section: any) => section.type === "heading",
+                  )?.text ?? "";
 
                 const introIndex = localisationSections.findIndex(
                   (section: any) =>

@@ -26,6 +26,10 @@ import automotiveComponentManufacturersDrawingToDispatch from "./automotive-comp
 import inHouseToolAndDieAutomotiveComponentManufacturers from "./in-house-tool-and-die-automotive-component-manufacturers";
 import zeroDefectQualityControlAutomotiveComponentManufacturers from "./zero-defect-quality-control-automotive-component-manufacturers";
 import localisationIndiaAutomotiveComponentManufacturers from "./localisation-india-automotive-component-manufacturers";
+import brazingTubeBendingAssembliesBendGeometryJointIntegrity from "./brazing-tube-bending-assemblies-bend-geometry-joint-integrity";
+import brazingVsWeldingAutomotiveManufacturing from "./brazing-vs-welding-automotive-manufacturing";
+import manufacturingPartnersInventorySupplyChainReduceOemLeadTimes from "./manufacturing-partners-inventory-supply-chain-reduce-oem-lead-times";
+import ultrasonicCleaningBentTubesBeforeAssembly from "./ultrasonic-cleaning-bent-tubes-before-assembly";
 
 import type { BlogPost, BlogSection } from "./types";
 
@@ -40,6 +44,10 @@ export const blogs: BlogPost[] = [
   inHouseToolAndDieAutomotiveComponentManufacturers,
   zeroDefectQualityControlAutomotiveComponentManufacturers,
   localisationIndiaAutomotiveComponentManufacturers,
+  brazingTubeBendingAssembliesBendGeometryJointIntegrity,
+  brazingVsWeldingAutomotiveManufacturing,
+  manufacturingPartnersInventorySupplyChainReduceOemLeadTimes,
+  ultrasonicCleaningBentTubesBeforeAssembly,
 ];
 
 export const getBlogByKey = (key: string) => blogs.find((b) => b.key === key);
