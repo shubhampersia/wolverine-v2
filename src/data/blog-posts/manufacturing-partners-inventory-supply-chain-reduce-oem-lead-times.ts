@@ -35,7 +35,7 @@ const post: BlogPost = {
     { type: "paragraph", text: "This requires demand visibility, production planning, and an understanding of the OEM’s consumption patterns." },
     { type: "heading", text: "Fewer Handoffs, Fewer Delays" },
     { type: "paragraph", text: "A fragmented supply chain can require an OEM to coordinate multiple vendors for different manufacturing and secondary processes." },
-    { type: "paragraph", text: "For example, one supplier may handle [tube forming](/services/bending), another machining, another [assembly](/services/assembly), and another inventory or logistics. Each additional handoff introduces another scheduling dependency." },
+    { type: "paragraph", text: "For example, one supplier may handle tube forming, another machining, another assembly, and another inventory or logistics. Each additional handoff introduces another scheduling dependency." },
     { type: "paragraph", text: "A manufacturing partner that can coordinate multiple stages under one program can reduce these dependencies. Instead of managing several disconnected schedules, the OEM can work with one partner responsible for coordinating production, inventory, and delivery requirements." },
     { type: "paragraph", text: "This is where experienced supply chain management companies can provide value beyond transportation or warehousing. When supply chain planning is integrated with manufacturing, decisions around inventory and production can be made with the actual component requirements in mind." },
     { type: "heading", text: "Visibility Matters as Much as Inventory" },
@@ -52,7 +52,7 @@ const post: BlogPost = {
     ] },
     { type: "paragraph", text: "Better visibility allows potential shortages to be identified earlier rather than after they begin affecting production." },
     { type: "heading", text: "What OEMs Should Look for in a Manufacturing Partner" },
-    { type: "paragraph", text: "When evaluating suppliers for long-term programs, OEMs should look beyond individual manufacturing capabilities. Important questions include:" },
+    { type: "paragraph", text: "When [evaluating suppliers for long-term programs](/blogs/evaluate-automotive-parts-suppliers-checklist/), OEMs should look beyond individual manufacturing capabilities. Important questions include:" },
     { type: "bulletList", items: [
       "Can the supplier maintain program-specific inventory?",
       "How are material and finished-goods levels monitored?",
@@ -62,7 +62,7 @@ const post: BlogPost = {
       "Can delivery schedules be aligned with the OEM’s production requirements?"
     ] },
     { type: "paragraph", text: "The right manufacturing partner can effectively become an extension of the OEM’s supply chain. By combining manufacturing, inventory planning, and logistics coordination, suppliers can help reduce unnecessary handoffs, improve material availability, and make component delivery more predictable." },
-    { type: "paragraph", text: "For OEMs, the result is not simply shorter lead times. It is a supply chain that is easier to plan, monitor, and scale as production requirements change. Our article on [localisation in India](/blogs/localisation-india-automotive-component-manufacturers) looks at how regional production can shorten supply chains further." },
+    { type: "paragraph", text: "For OEMs, the result is not simply shorter lead times. It is a supply chain that is easier to plan, monitor, and scale as production requirements change. Our article on localisation in India looks at how regional production can shorten supply chains further." },
   ],
 };
 
