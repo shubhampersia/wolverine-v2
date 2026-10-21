@@ -243,11 +243,11 @@ const [openCertificate, setOpenCertificate] = useState<string | null>(null);
 
     {/* Certificate 2 */}
     <div
-      onClick={() => setOpenCertificate("/cert2.jpeg")}
+      onClick={() => setOpenCertificate("/cert3.jpg")}
       className="relative group cursor-pointer w-fit"
     >
       <img
-        src="/cert2.jpeg"
+        src="/cert3.jpg"
         alt="ISO 9001 Certificate"
         className="w-[180px] h-[260px] object-cover rounded-xl border border-black shadow-md transition-transform duration-300 group-hover:scale-105"
       />
