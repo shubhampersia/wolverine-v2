@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Layout from "@/components/Layout";
 import { FadeIn, StaggerContainer } from "@/components/Animations";
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
@@ -37,22 +37,36 @@ const renderBlogText = (text: string) =>
     ),
   );
 
-/* Inline links written as [anchor text](/internal-path) inside blog copy.
-   Used to add SEO internal links without touching the layouts. */
-const renderLinkedText = (text: string) =>
-  text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, index) => {
+/* Inline formatting written inside blog copy:
+     **bold text**                 -> <strong>
+     [anchor text](/internal-path) -> link (internal links use the router)
+     **[anchor text](/path)**      -> bold link
+   Used to add SEO internal links / emphasis without touching the layouts. */
+const renderLinkedText = (text: string, keyPrefix = "rt"): ReactNode[] =>
+  text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g).map((part, index) => {
+    const key = `${keyPrefix}-${index}`;
+
+    const boldMatch = part.match(/^\*\*([^*]+)\*\*$/);
+    if (boldMatch) {
+      return (
+        <strong key={key} className="font-bold text-foreground">
+          {renderLinkedText(boldMatch[1], key)}
+        </strong>
+      );
+    }
+
     const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (!match) return part;
     const [, label, href] = match;
     const className =
       "underline decoration-primary/60 underline-offset-2 hover:decoration-primary hover:text-foreground transition-colors";
     return href.startsWith("/") ? (
-      <Link key={`${href}-${index}`} to={href} className={className}>
+      <Link key={key} to={href} className={className}>
         {label}
       </Link>
     ) : (
       <a
-        key={`${href}-${index}`}
+        key={key}
         href={href}
         target="_blank"
         rel="noopener noreferrer"
@@ -1801,7 +1815,7 @@ const DrawingToDispatchIntroSection = ({
               </div>
 
               <p className="text-foreground/85 text-sm md:text-base leading-7">
-                {tldr}
+                {renderLinkedText(tldr)}
               </p>
             </div>
           </FadeIn>
