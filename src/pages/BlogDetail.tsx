@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import Layout from "@/components/Layout";
 import { FadeIn, StaggerContainer } from "@/components/Animations";
+import ContactCtaForm from "@/components/ContactCtaForm";
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -3143,23 +3144,7 @@ const BlogDetail = () => {
         </section>
       )}
 
-      {/* ━━ CTA ━━ */}
-      <section className="py-16 lg:py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 text-center">
-          <FadeIn>
-            <h2 className="heading-section mb-4">Ready to Get Started?</h2>
-
-            <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-              Contact us to discuss your sourcing and manufacturing
-              requirements.
-            </p>
-
-            <Link to="/contact" className="btn-primary">
-              Contact Us <ArrowRight size={16} />
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
+      <ContactCtaForm description="Share your sourcing and manufacturing requirements and our team will get back to you." />
     </Layout>
   );
 };

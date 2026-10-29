@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { FadeIn, StaggerContainer } from "@/components/Animations";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import ContactCtaForm from "@/components/ContactCtaForm";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { services, serviceContent, type ServiceKey } from "@/data/services";
@@ -267,21 +267,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* ━━ CTA ━━ */}
-      <section className="section-dark py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <FadeIn>
-            <h2 className="heading-section mb-4">Ready to Get Started?</h2>
-            <p className="text-secondary-foreground/50 max-w-xl mx-auto mb-8">
-              Contact us to discuss your manufacturing requirements and how our services can
-              support your production needs.
-            </p>
-            <Link to="/contact" className="btn-primary">
-              Contact Us <ArrowRight size={16} />
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
+      <ContactCtaForm description="Share your manufacturing requirements and our team will get back to you to discuss how our services can support your production needs." />
     </Layout>
   );
 };

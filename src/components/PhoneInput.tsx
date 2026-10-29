@@ -30,9 +30,19 @@ type Props = {
   value: string;
   onChange: (val: string) => void;
   error?: string;
+  labelClassName?: string;
+  containerClassName?: string;
+  inputClassName?: string;
 };
 
-export default function PhoneInput({ value, onChange, error }: Props) {
+export default function PhoneInput({
+  value,
+  onChange,
+  error,
+  labelClassName = "",
+  containerClassName = "",
+  inputClassName = "",
+}: Props) {
   const [selected, setSelected] = useState(COUNTRIES[0]); // default India
   const [open, setOpen] = useState(false);
   const [number, setNumber] = useState("");
@@ -77,8 +87,8 @@ export default function PhoneInput({ value, onChange, error }: Props) {
 
   return (
     <div>
-      <label className="label-utility mb-2 block">Mobile Number</label>
-      <div className="flex h-11 rounded-lg border border-input bg-background overflow-visible focus-within:ring-2 focus-within:ring-ring transition-shadow relative">
+      <label className={`label-utility mb-2 block ${labelClassName}`}>Mobile Number</label>
+      <div className={`flex h-11 rounded-lg border border-input bg-background overflow-visible focus-within:ring-2 focus-within:ring-ring transition-shadow relative ${containerClassName}`}>
         {/* Country selector */}
         <div ref={dropdownRef} className="relative">
           <button
@@ -135,7 +145,7 @@ export default function PhoneInput({ value, onChange, error }: Props) {
           value={number}
           onChange={(e) => setNumber(e.target.value.replace(/[^\d\s\-]/g, ""))}
           placeholder="Enter your number"
-          className="flex-1 h-full px-3 bg-transparent text-sm focus:outline-none"
+          className={`flex-1 h-full px-3 bg-transparent text-sm focus:outline-none ${inputClassName}`}
         />
       </div>
       {error && <span className="text-xs text-red-500 mt-1 block">{error}</span>}

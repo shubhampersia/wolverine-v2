@@ -1,14 +1,14 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Layout from "@/components/Layout";
 import { FadeIn } from "@/components/Animations";
+import ContactCtaForm from "@/components/ContactCtaForm";
 import {
-  ArrowRight, ChevronRight, Spline, Boxes, FileCheck2, CarFront, Search, ClipboardList,
+  ChevronRight, Spline, Boxes, FileCheck2, CarFront, Search, ClipboardList,
   Layers, Flame, Cog, ClipboardCheck, FileText, CircleDot, Scissors, Hammer, Waves,
   Sparkles, Wrench, ShieldCheck, Award, BadgeCheck, Warehouse, ListChecks, PackageCheck,
   Globe2, Truck, Tractor, Construction, Fuel, Zap, Gauge, Microwave, HeartPulse, Plane,
   Package, Cable,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import FaqSection, { type Faq } from "@/components/FaqSection";
 
@@ -507,28 +507,7 @@ const AutoPartsManufacturersIndia = () => {
 
       <FaqSection faqs={faqs} eyebrow="07" />
 
-      {/* ━━ CTA ━━ */}
-      <section className="section-dark relative overflow-hidden py-16 lg:py-20">
-        <div className="pointer-events-none absolute bottom-0 left-12 h-32 w-8 -skew-x-[35deg] bg-primary" />
-        <div className="pointer-events-none absolute right-24 top-0 h-8 w-24 -skew-x-[35deg] bg-primary" />
-        <div className="pointer-events-none absolute -right-6 top-0 h-full w-24 skew-x-[35deg] border-l border-primary/50" />
-        <div className="pointer-events-none absolute -left-6 top-0 h-full w-24 -skew-x-[35deg] border-r border-primary/30" />
-
-        <div className="relative mx-auto max-w-7xl px-6 text-center">
-          <FadeIn>
-            <h2 className="heading-section mb-4">
-              Ready to <span className="text-primary">Get Started?</span>
-            </h2>
-            <p className="mx-auto mb-8 max-w-xl text-secondary-foreground/50">
-              Contact our Chennai facility to discuss tube bending, engineered assemblies, and
-              supply chain support for your program.
-            </p>
-            <Link to="/contact" className="btn-primary">
-              Contact Us <ArrowRight size={16} />
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
+      <ContactCtaForm description="Share your requirements for tube bending, engineered assemblies, and supply chain support, and our Chennai team will get back to you." />
     </Layout>
   );
 };

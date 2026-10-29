@@ -1,12 +1,12 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Layout from "@/components/Layout";
 import { FadeIn } from "@/components/Animations";
+import ContactCtaForm from "@/components/ContactCtaForm";
 import {
-  ArrowRight, ChevronRight, Settings, ShieldCheck, Boxes, Wrench, ClipboardCheck,
+  ChevronRight, Settings, ShieldCheck, Boxes, Wrench, ClipboardCheck,
   Droplets, Thermometer, Cog, CarFront, GitBranch, Factory, Scissors, Flame, Layers,
   Sparkles, Truck, CheckCircle2, Globe2, Users, BarChart3, Award,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import FaqSection, { type Faq } from "@/components/FaqSection";
 
@@ -264,11 +264,11 @@ const AutomotiveComponentManufacturers = () => {
 
           <FadeIn delay={0.12}>
             <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-              <div className="flex items-start justify-between">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-7 sm:flex sm:items-start sm:justify-between">
                 {processSteps.map(({ icon: Icon, label }, i, arr) => (
-                  <div key={label} className="relative flex w-1/4 flex-col items-center text-center">
+                  <div key={label} className="relative flex min-w-0 flex-col items-center text-center sm:w-1/4">
                     <span
-                      className={`flex h-24 w-24 items-center justify-center rounded-full border-2 p-2 transition-colors duration-300 ${
+                      className={`flex h-20 w-20 items-center justify-center rounded-full border-2 p-2 transition-colors duration-300 sm:h-24 sm:w-24 ${
                         i === activeStep ? "border-primary" : "border-primary/20"
                       }`}
                     >
@@ -283,7 +283,7 @@ const AutomotiveComponentManufacturers = () => {
                       </span>
                     </span>
                     {i < arr.length - 1 && (
-                      <span className="absolute left-[calc(50%+54px)] top-[46px] flex w-[calc(100%-108px)] items-center justify-center">
+                      <span className="absolute left-[calc(50%+54px)] top-[46px] hidden w-[calc(100%-108px)] items-center justify-center sm:flex">
                         <span className="h-2 w-2 rounded-full bg-primary" />
                       </span>
                     )}
@@ -300,15 +300,15 @@ const AutomotiveComponentManufacturers = () => {
               </div>
 
               {/* bracket from first to last step, with the label sitting on its bottom line */}
-              <div className="mx-[12.5%] mt-5 flex items-stretch">
+              <div className="mx-auto mt-5 max-w-sm text-center sm:mx-[12.5%] sm:flex sm:max-w-none sm:items-stretch">
                 <div className="relative flex-1">
-                  <span className="absolute inset-x-0 top-0 h-1/2 rounded-bl-2xl border-b border-l border-primary/70" />
+                  <span className="absolute inset-x-0 top-0 hidden h-1/2 rounded-bl-2xl border-b border-l border-primary/70 sm:block" />
                 </div>
-                <span className="mx-3 w-max max-w-[60%] rounded-lg bg-primary/15 px-5 py-3 text-center text-xs font-bold uppercase leading-snug tracking-wide sm:text-[13px]">
+                <span className="rounded-lg bg-primary/15 px-4 py-3 text-xs font-bold uppercase leading-snug tracking-wide sm:mx-3 sm:w-max sm:max-w-[60%] sm:px-5 sm:text-[13px]">
                   From material selection and tooling to production and inspection
                 </span>
                 <div className="relative flex-1">
-                  <span className="absolute inset-x-0 top-0 h-1/2 rounded-br-2xl border-b border-r border-primary/70" />
+                  <span className="absolute inset-x-0 top-0 hidden h-1/2 rounded-br-2xl border-b border-r border-primary/70 sm:block" />
                 </div>
               </div>
             </div>
@@ -447,28 +447,7 @@ const AutomotiveComponentManufacturers = () => {
 
       <FaqSection faqs={faqs} />
 
-      {/* ━━ CTA ━━ */}
-      <section className="section-dark relative overflow-hidden py-16 lg:py-20">
-        <div className="pointer-events-none absolute bottom-0 left-12 h-32 w-8 -skew-x-[35deg] bg-primary" />
-        <div className="pointer-events-none absolute right-24 top-0 h-8 w-24 -skew-x-[35deg] bg-primary" />
-        <div className="pointer-events-none absolute -right-6 top-0 h-full w-24 skew-x-[35deg] border-l border-primary/50" />
-        <div className="pointer-events-none absolute -left-6 top-0 h-full w-24 -skew-x-[35deg] border-r border-primary/30" />
-
-        <div className="relative mx-auto max-w-7xl px-6 text-center">
-          <FadeIn>
-            <h2 className="heading-section mb-4">
-              Ready to <span className="text-primary">Get Started?</span>
-            </h2>
-            <p className="mx-auto mb-8 max-w-xl text-secondary-foreground/50">
-              Contact us to discuss your manufacturing requirements and how our capabilities can
-              support your production programs.
-            </p>
-            <Link to="/contact" className="btn-primary">
-              Contact Us <ArrowRight size={16} />
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
+      <ContactCtaForm description="Share your manufacturing requirements and our team will discuss how our capabilities can support your production programs." />
     </Layout>
   );
 };
